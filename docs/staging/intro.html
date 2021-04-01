@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Introduction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Introduction</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="TCKpreface.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="rules.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GBFOW"></a><a id="introduction"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_introduction">1 Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document provides instructions for installing, configuring, and
+running the Jakarta Platform, Enterprise Edition 8 Compatibility Test Suite
+(Jakarta EE 8 CTS).</p>
+</div>
+<div class="paragraph">
+<p>This chapter includes the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GBFTK">Compatibility Testing</a></p>
+</li>
+<li>
+<p><a href="#GEUYK">About Jakarta EE 8 CTS</a></p>
+</li>
+<li>
+<p><a href="#GEVAD">Hardware Requirements</a></p>
+</li>
+<li>
+<p><a href="#GEVBB">Software Requirements</a></p>
+</li>
+<li>
+<p><a href="#GEVCL">Additional Jakarta EE 8 CTS Requirements</a></p>
+</li>
+<li>
+<p><a href="#GBFQW">Getting Started With the Jakarta EE 8 CTS Test Suite</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GBFTK"></a><a id="compatibility-testing"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_1_1_compatibility_testing">1.1 Compatibility Testing</h3>
+<div class="paragraph">
+<p>Compatibility testing differs from traditional product testing in a
+number of ways. The focus of compatibility testing is to test those
+features and areas of an implementation that are likely to differ across
+other implementations, such as those features that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rely on hardware or operating system-specific behavior</p>
+</li>
+<li>
+<p>Are difficult to port</p>
+</li>
+<li>
+<p>Mask or abstract hardware or operating system behavior</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Compatibility test development for a given feature relies on a complete
+specification and compabitle implementation for that feature.
+Compatibility testing is not primarily concerned with robustness,
+performance, or ease of use.</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFQN"></a><a id="why-compatibility-testing-is-important"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_1_1_1_why_compatibility_testing_is_important">1.1.1 Why Compatibility Testing is Important</h4>
+<div class="paragraph">
+<p>Jakarta Platform compatibility is important to different groups involved
+with Jakarta technologies for different reasons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compatibility testing ensures that the Jakarta Platform does not become
+fragmented as it is ported to different operating systems and hardware
+environments.</p>
+</li>
+<li>
+<p>Compatibility testing benefits developers working in the Java
+programming language, allowing them to write applications once and then
+to deploy them across heterogeneous computing environments without
+porting.</p>
+</li>
+<li>
+<p>Compatibility testing allows application users to obtain applications
+from disparate sources and deploy them with confidence.</p>
+</li>
+<li>
+<p>Conformance testing benefits Jakarta Platform implementors by ensuring a
+level playing field for all Jakarta Platform ports.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GBFPR"></a><a id="compatibility-rules"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_1_2_compatibility_rules">1.1.2 Compatibility Rules</h4>
+<div class="paragraph">
+<p>Compatibility criteria for all technology implementations are embodied
+in the Compatibility Rules that apply to a specified technology. The
+Jakarta EE 8 CTS tests for adherence to these Rules as described in
+<a href="rules.html#GBFSN">Chapter 2, "Procedure for Jakarta Platform, Enterprise
+Edition 8 Certification,"</a> for Jakarta EE 8 and
+<a href="rules-wp.html#GJJPZ">Chapter 3, "Procedure for Jakarta Platform,
+Enterprise Edition 8 Web Profile Certification,"</a> for Jakarta EE 8 Web
+Profile.</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFPW"></a><a id="cts-overview"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_1_3_cts_overview">1.1.3 CTS Overview</h4>
+<div class="paragraph">
+<p>A Jakarta EE 8 CTS is a set of tools and tests used to verify that a
+Implementer&#8217;s implementation of Jakarta EE 8 technology conforms to the
+applicable specification. All tests in the CTS are based on the written
+specifications for the Jakarta Platform. The CTS tests compatibility of a
+Implementer&#8217;s implementation of a technology to the applicable
+specification of the technology. Compatibility testing is a means of
+ensuring correctness, completeness, and consistency across all
+implementations developed by technology Implementers.</p>
+</div>
+<div class="paragraph">
+<p>The set of tests included with the Jakarta EE 8 CTS is called the test
+suite. All tests in the CTS test suite are self-checking, but some tests
+may require tester interaction. Most tests return either a Pass or Fail
+status. For a given platform to be certified, all of the required tests
+must pass. The definition of required tests may change from platform to
+platform.</p>
+</div>
+<div class="paragraph">
+<p>The definition of required tests will change over time. Before your
+final certification test pass, be sure to download the latest Exclude
+List for the Jakarta EE 8 CTS. The definition of required tests will change
+over time. See <a href="#GEUYQ">Section 1.2.5, "Exclude Lists,"</a> for more
+information.</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFPB"></a><a id="jakarta-community-community-process-program-and-compatibility-testing"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_1_4_jakarta_specification_community_process_program_and_compatibility_testing">1.1.4 Jakarta Specification Community Process Program and Compatibility Testing</h4>
+<div class="paragraph">
+<p>The Jakarta EE Specification Process (JESP) program is the
+formalization of the open process that has been used since 2019 to
+develop and revise Jakarta EE technology specifications in cooperation
+with the international Jakarta EE community. The JESP program specifies
+that the following three major components must be included as
+deliverables in a final Jakarta EE technology release under the
+direction of the responsible specification project committer group:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Technology Specification</p>
+</li>
+<li>
+<p>A Compatible Implementation</p>
+</li>
+<li>
+<p>Technology Compatibility Kit (TCK)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For further information about the JESP program, go to Jakarta EE
+Specification Process community page (<a href="https://jakarta.ee/specifications" class="bare">https://jakarta.ee/specifications</a>).</p>
+</div>
+<div class="paragraph">
+<p><a id="GEUYK"></a><a id="about-jakarta-ee-8-cts"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_2_about_jakarta_ee_8_cts">1.2 About Jakarta EE 8 CTS</h3>
+<div class="paragraph">
+<p>Jakarta EE 8 CTS is a portable, configurable, automated test suite for
+verifying the compliance of a Implementer&#8217;s implementation of the Jakarta EE 8
+technologies. Jakarta EE 8 CTS includes version 5.0 of the JavaTest
+harness.</p>
+</div>
+<div class="paragraph">
+<p>For documentation on the test harness used for running the Jakarta EE 8 CTS
+test suite, see
+<code>https://wiki.openjdk.java.net/display/CodeTools/Documentation</code>.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref4"></a><a id="jakarta-ee-8-technologies-tested-with-jakarta-ee-8-cts"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_1_2_1_jakarta_ee_8_technologies_tested_with_jakarta_ee_8_cts">1.2.1 Jakarta EE 8 Technologies Tested with Jakarta EE 8 CTS</h4>
+<div class="paragraph">
+<p>The Jakarta EE 8 CTS test suite includes compatibility tests for the
+following required and optional Jakarta EE 8 technologies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Enterprise Beans 3.2<br></p>
+</li>
+<li>
+<p>Jakarta Servlet 4.0</p>
+</li>
+<li>
+<p>Jakarta Server Pages 2.3</p>
+</li>
+<li>
+<p>Jakarta Expression Language 3.0</p>
+</li>
+<li>
+<p>Jakarta Messaging 2.0</p>
+</li>
+<li>
+<p>Jakarta Transactions 1.2</p>
+</li>
+<li>
+<p>Jakarta Mail 1.6</p>
+</li>
+<li>
+<p>Jakarta Connectors 1.7</p>
+</li>
+<li>
+<p>Jakarta Enterprise Web Services 1.4</p>
+</li>
+<li>
+<p>Jakarta XML RPC 1.1 (optional)</p>
+</li>
+<li>
+<p>Jakarta RESTful Web Services 2.1</p>
+</li>
+<li>
+<p>Jakarta WebSocket 1.1</p>
+</li>
+<li>
+<p>Jakarta JSON Processing 1.1</p>
+</li>
+<li>
+<p>Jakarta JSON Binding 1.0</p>
+</li>
+<li>
+<p>Jakarta Concurrency 1.0</p>
+</li>
+<li>
+<p>Jakarta Batch 1.0</p>
+</li>
+<li>
+<p>Jakarta XML Registries 1.0 (optional)</p>
+</li>
+<li>
+<p>Jakarta Management 1.1</p>
+</li>
+<li>
+<p>Jakarta Deployment 1.2 (optional)</p>
+</li>
+<li>
+<p>Jakarta Authorization 1.5</p>
+</li>
+<li>
+<p>Jakarta Authentication 1.1</p>
+</li>
+<li>
+<p>Jakarta Standard Tag Library 1.2</p>
+</li>
+<li>
+<p>Jakarta Faces 2.3</p>
+</li>
+<li>
+<p>Jakarta Security 1.0</p>
+</li>
+<li>
+<p>Jakarta Annotations 1.3</p>
+</li>
+<li>
+<p>Jakarta Persistence 2.2</p>
+</li>
+<li>
+<p>Jakarta Bean Validation 2.0</p>
+</li>
+<li>
+<p>Jakarta Managed Beans 1.0</p>
+</li>
+<li>
+<p>Jakarta Interceptors 1.2</p>
+</li>
+<li>
+<p>Jakarta Contexts and Dependency Injection 2.0</p>
+</li>
+<li>
+<p>Jakarta Dependency Injection 1.0</p>
+</li>
+<li>
+<p>Jakarta Debugging Support for Other Languages 1.0</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Support for the following Legacy Java EE features has been made optional in the Jakarta EE
+8 release:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>EJB 2.1 and earlier Entity Bean Component Contract for
+Container-Managed Persistence and Bean-Managed Persistence</p>
+</li>
+<li>
+<p>Client View of an EJB 2.1 and earlier Entity Bean</p>
+</li>
+<li>
+<p>EJB QL: Query Language for Container-Managed Persistence Query
+Methods</p>
+</li>
+<li>
+<p>JAX-RPC Based Web Service Endpoints</p>
+</li>
+<li>
+<p>JAX-RPC Web Service Client View</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a id="BHCGFHDI"></a><a id="jakarta-ee-8-web-profile-technologies-tested-with-jakarta-ee-8-cts"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_2_2_jakarta_ee_8_web_profile_technologies_tested_with_jakarta_ee_8_cts">1.2.2 Jakarta EE 8 Web Profile Technologies Tested With Jakarta EE 8 CTS</h4>
+<div class="paragraph">
+<p>The Jakarta EE 8 CTS test suite can also be used to test compatibility for
+the following required Jakarta EE 8 Web Profile technologies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Servlet 4.0</p>
+</li>
+<li>
+<p>Jakarta Server Pages 2.3</p>
+</li>
+<li>
+<p>Jakarta Expression Language 3.0</p>
+</li>
+<li>
+<p>Jakarta Standard Tag Library 1.2</p>
+</li>
+<li>
+<p>Jakarta Faces 2.3</p>
+</li>
+<li>
+<p>Jakarta RESTful Web Services 2.1</p>
+</li>
+<li>
+<p>Jakarta WebSocket 1.1</p>
+</li>
+<li>
+<p>Jakarta JSON Processing 1.1</p>
+</li>
+<li>
+<p>Jakarta JSON Binding 1.0</p>
+</li>
+<li>
+<p>Jakarta Common Annotations 1.3</p>
+</li>
+<li>
+<p>Jakarta Enterprise Beans 3.2, Lite</p>
+</li>
+<li>
+<p>Jakarta Transactions 1.2</p>
+</li>
+<li>
+<p>Jakarta Persistence 2.2</p>
+</li>
+<li>
+<p>Jakarta Bean Validation 2.0</p>
+</li>
+<li>
+<p>Jakarta Managed Beans 1.0</p>
+</li>
+<li>
+<p>Jakarta Interceptors 1.2</p>
+</li>
+<li>
+<p>Jakarta Contexts and Dependency Injection 2.0</p>
+</li>
+<li>
+<p>Jakarta Dependency Injection 1.0</p>
+</li>
+<li>
+<p>Jakarta Security 1.0</p>
+</li>
+<li>
+<p>Jakarta Authentication 1.1, Servlet Container Profile</p>
+</li>
+<li>
+<p>Jakarta Debugging Support for Other Languages 1.0</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GEUZS"></a><a id="cts-tests"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_2_3_cts_tests">1.2.3 CTS Tests</h4>
+<div class="paragraph">
+<p>The Jakarta EE 8 CTS contains API tests and enterprise edition tests, which
+are tests that start in the Jakarta EE 8 platform and use the underlying
+enterprise service or services as specified. For example, a JDBC
+enterprise edition test connects to a database, uses SQL commands and
+the JDBC 4.2 API to populate the database tables with data, queries the
+database, and compares the returned results against the expected
+results.</p>
+</div>
+<div id="GEUZU" class="paragraph">
+<div class="title"><strong>Figure 1-1 Typical Jakarta Platform, Enterprise Edition Workflow</strong></div>
+<p><span class="image"><img src="img/overviewa.png" alt="Typical Jakarta Platform, Enterprise Edition Workflow"></span></p>
+</div>
+<div class="paragraph">
+<p>Note: References in diagram to Java EE refer to Jakarta EE.</p>
+</div>
+<div class="paragraph">
+<p><a href="#GEUZU">Figure 1-1</a> shows how most Implementers will use the test
+suite. They will set up and run the test suite with the Jakarta Platform,
+Enterprise Edition 8 Compatible Implementation (Jakarta EE 8 CI) first to
+become familiar with the testing process. Then they will set up and run
+the test suite with their own Jakarta EE 8 implementation. This is called the
+Vendor Implementation, or VI in this document. When they pass
+all of the tests, they will apply for and be granted certification.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Before you do anything with the test suite, read the rules in
+<a href="rules.html#GBFSN">Chapter 2, "Procedure for Jakarta Platform, Enterprise
+Edition 8 Certification,"</a> or <a href="rules-wp.html#GJJPZ">Chapter 3,
+"Procedure for Jakarta Platform, Enterprise Edition 8 Web Profile
+Certification."</a> These chapters explain the certification process and
+provides a definitive list of certification rules for Jakarta EE 8 and Jakarta
+EE 8 Web Profile implementations.</p>
+</li>
+<li>
+<p>Next, take a look at the test assertions in the Assertion List, which
+you can find in the Jakarta EE 8 CTS documentation bundle. The assertions
+explain what each test is testing. When you run the tests with the
+JavaTest GUI, the assertion being tested as part of the test description
+of the currently selected test is displayed.</p>
+</li>
+<li>
+<p>Third, install and configure the Jakarta EE 8 CTS software and the Jakarta
+EE 8 CI or Jakarta EE 8 Web Profile CI and run the tests as described in
+this guide. This will familiarize you with the testing process.</p>
+</li>
+<li>
+<p>Finally, set up and run the test suite with your own Jakarta EE 8 or Jakarta
+EE 8 Web Profile implementation.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In the instructions in this document, variables in angle brackets need
+to be expanded for each platform. For example, <code>&lt;TS_HOME&gt;</code> becomes
+<code>$TS_HOME</code> on Solaris/Linux and <code>%TS_HOME%</code> on Windows. In addition, the
+forward slashes (<code>/</code>) used in all of the examples need to be replaced
+with backslashes (<code>\</code>) for Windows.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a id="GEUYR"></a><a id="javatest-harness"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_2_4_javatest_harness">1.2.4 JavaTest Harness</h4>
+<div class="paragraph">
+<p>The JavaTest harness version 4.4.1 is a set of tools designed to run and
+manage test suites on different Java platforms. The JavaTest harness can
+be described as both a Java application and a set of compatibility
+testing tools. It can run tests on different kinds of Java platforms and
+it allows the results to be browsed online within the JavaTest GUI, or
+offline in the HTML reports that the JavaTest harness generates.</p>
+</div>
+<div class="paragraph">
+<p>The JavaTest harness includes the applications and tools that are used
+for test execution and test suite management. It supports the following
+features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sequencing of tests, allowing them to be loaded and executed
+automatically</p>
+</li>
+<li>
+<p>Graphic user interface (GUI) for ease of use</p>
+</li>
+<li>
+<p>Automated reporting capability to minimize manual errors</p>
+</li>
+<li>
+<p>Failure analysis</p>
+</li>
+<li>
+<p>Test result auditing and auditable test specification framework</p>
+</li>
+<li>
+<p>Distributed testing environment support</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To run tests using the JavaTest harness, you specify which tests in the
+test suite to run, how to run them, and where to put the results as
+described in <a href="using.html#GBFWO">Chapter 7, "Executing Tests."</a></p>
+</div>
+<div class="paragraph">
+<p>The tests that make up the CTS are precompiled and indexed within the
+CTS test directory structure. When a test run is started, the JavaTest
+harness scans through the set of tests that are located under the
+directories that have been selected. While scanning, the JavaTest
+harness selects the appropriate tests according to any matches with the
+filters you are using and queues them up for execution.</p>
+</div>
+<div class="paragraph">
+<p><a id="GEUYQ"></a><a id="exclude-lists"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_2_5_exclude_lists">1.2.5 Exclude Lists</h4>
+<div class="paragraph">
+<p>The Jakarta EE 8 CTS includes an Exclude List contained in a <code>.jtx</code> file.
+This is a list of test file URLs that identify tests which do not have
+to be run for the specific version of the CTS being used. Whenever tests
+are run, the JavaTest harness automatically excludes any test on the
+Exclude List from being executed.</p>
+</div>
+<div class="paragraph">
+<p>A implementor is not required to pass or run any test on the Exclude List.
+The Exclude List file, <code>&lt;TS_HOME&gt;/bin/ts.jtx</code>, is included in the Jakarta
+EE 8 CTS.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Always make sure you are using an up-to-date copy of the Exclude List
+before running the Jakarta EE 8 CTS test suite to verify your
+implementation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A test might be in the Exclude List for reasons such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An error in an underlying implementation API has been discovered which
+does not allow the test to execute properly.</p>
+</li>
+<li>
+<p>An error in the specification that was used as the basis of the test
+has been discovered.</p>
+</li>
+<li>
+<p>An error in the test itself has been discovered.</p>
+</li>
+<li>
+<p>The test fails due to a bug in the tools (such as the JavaTest
+harness, for example).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, all tests are run against the compatible implementations.
+Any tests that cannot be run on a compatible Jakarta Platform may be put on the
+Exclude List if the Specification project team agrees the test is invalid.
+Any test that is not specification-based, or for which the
+specification is vague, may be excluded. Any test that is found to be
+implementation dependent (based on a particular thread scheduling model,
+based on a particular file system behavior, and so on) may be excluded.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Implementers are not permitted to alter or modify Exclude Lists. Changes to
+an Exclude List can only be made by using the procedure described in
+<a href="rules.html#CJAICHHD">Section 2.3.1, "Jakarta Platform, Enterprise
+Edition Version 8 TCK Test Appeals Steps,"</a> and
+<a href="rules-wp.html#CEGCHJGH">Section 3.3.1, "Jakarta Platform, Enterprise
+Edition Version 8 TCK Test Appeals Steps."</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a id="GEUZN"></a><a id="apache-ant"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_2_6_apache_ant">1.2.6 Apache Ant</h4>
+<div class="paragraph">
+<p>The Jakarta EE 8 CI, Jakarta EE 8 Web Profile CI, and Jakarta EE 8 CTS require
+implementations of Apache Ant 1.9.7 from the Apache Ant Project
+(<code>http://ant.apache.org/</code>). Apache Ant is a free, open-source,
+Java-based build tool, similar in some ways to the make tool, but more
+flexible, cross-platform compatible, and centered around XML-based
+configuration files.</p>
+</div>
+<div class="paragraph">
+<p>Ant is invoked in the Jakarta EE 8 CI, Jakarta EE 8 Web Profile CI, and Jakarta
+EE 8 CTS in conjunction with various XML files containing Ant targets.
+These Ant targets provide a convenient way to automate various
+configuration tasks for Jakarta EE 8 CTS. For example, the initial
+configuration of the Jakarta EE 8 CI or Jakarta EE 8 Web Profile CI for CTS is
+done by means of the <code>config.vi</code> Ant target.</p>
+</div>
+<div class="paragraph">
+<p>The Ant configuration targets are there for your convenience. When
+configuring your Jakarta EE 8 or Jakarta EE 8 Web Profile implementation for
+the Jakarta EE 8 CTS, you can either set up your environment to use the Ant
+tools, or you can perform some or all of your configuration procedures
+manually. Jakarta EE 8 CTS includes the Ant Contrib package, and the tasks
+included with Ant Contrib are used within the CTS build files. See
+<code>http://ant-contrib.sourceforge.net/</code> for more information about Ant
+Contrib.</p>
+</div>
+<div class="paragraph">
+<p>This User&#8217;s Guide does not provide in-depth instruction on Ant internals
+or how to configure Ant targets for your particular Jakarta EE 8 or Jakarta EE
+8 Web Profile implementation. For complete information about Ant, refer
+to the extensive documentation on the Apache Ant Project site. The
+Apache Ant Manual is available at
+<code>http://ant.apache.org/manual/index.html</code>.</p>
+</div>
+<div class="paragraph">
+<p>Apache Ant is protected under the Apache Software, License 2.0, which is
+is available on the Apache Ant Project license page at
+<code>http://ant.apache.org/license.html</code>.</p>
+</div>
+<div class="sect4">
+<h5 id="_installing_apache_ant">Installing Apache Ant</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Download the Apache Ant 1.9.7 binary bundle from the Apache Ant
+Project.</p>
+</li>
+<li>
+<p>Change to the directory in which you want to install Apache Ant and
+extract the bundle</p>
+</li>
+<li>
+<p>Set the <code>ANT_HOME</code> environment variable to point to the
+<code>apache-ant-&lt;version&gt;</code> directory</p>
+</li>
+<li>
+<p>Add <code>&lt;ANT_HOME&gt;/bin</code> directory to the environment variable <code>PATH</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GEVAD"></a><a id="hardware-requirements"></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_3_hardware_requirements">1.3 Hardware Requirements</h3>
+<div class="paragraph">
+<p>The following section lists the hardware requirements for the Jakarta EE 8
+CTS software, using the Jakarta EE 8 CI or Jakarta EE 8 Web Profile CI.
+Hardware requirements for other compatible implementations will vary.</p>
+</div>
+<div class="paragraph">
+<p>All systems should meet the following recommended hardware requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CPU running at 2.0 GHz or higher</p>
+</li>
+<li>
+<p>4 GB of RAM or more</p>
+</li>
+<li>
+<p>2 GB of swap space , if required</p>
+</li>
+<li>
+<p>6 GB of free disk space for writing data to log files, the Jakarta EE 8
+repository, and the database</p>
+</li>
+<li>
+<p>Network access to the Internet</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GEVBB"></a><a id="software-requirements"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_4_software_requirements">1.4 Software Requirements</h3>
+<div class="paragraph">
+<p>You can run the Jakarta EE 8 CTS software on platforms running the Solaris,
+Linux, Windows, and Mac OS software that meet the following software
+requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Operating Systems:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Solaris 10 and newer</p>
+</li>
+<li>
+<p>MAC OS X Mountain Lion (10.8.1+)</p>
+</li>
+<li>
+<p>Windows XP SP3, Windows 2008 R2</p>
+</li>
+<li>
+<p>Oracle Linux 6.4</p>
+</li>
+<li>
+<p>Fedora 18</p>
+</li>
+<li>
+<p>Ubuntu Linux 12.10</p>
+</li>
+<li>
+<p>Suse Enterprise Linux 12.2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Java SE 8 SDK</p>
+</li>
+<li>
+<p>Jakarta EE 8 CI or Jakarta EE 8 Web Profile CI</p>
+</li>
+<li>
+<p>Mail server that supports the IMAP and SMTP protocols</p>
+</li>
+<li>
+<p>One of the following databases:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Oracle</p>
+</li>
+<li>
+<p>Sybase</p>
+</li>
+<li>
+<p>DB2</p>
+</li>
+<li>
+<p>Microsoft SQL Server</p>
+</li>
+<li>
+<p>Postgres SQL</p>
+</li>
+<li>
+<p>MySQL</p>
+</li>
+<li>
+<p>Apache Derby</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GEVCL"></a><a id="additional-java-ee-8-cts-requirements"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_5_additional_jakarta_ee_8_cts_requirements">1.5 Additional Jakarta EE 8 CTS Requirements</h3>
+<div class="paragraph">
+<p>In addition to the instructions and requirements described in this
+document, all Jakarta EE 8 and Jakarta EE 8 Web Profile implementations must
+also pass the standalone TCKs for the following technologies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Contexts and Dependency Injection 2.0</p>
+</li>
+<li>
+<p>Jakarta Dependency Injection 1.0</p>
+</li>
+<li>
+<p>Jakarta Bean Validation 2.0</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information about the Jakarta Contexts and Dependency Injection technology,
+see the specification at LINK TBD (Formerly <code>http://jcp.org/en/jsr/detail?id=365</code>).</p>
+</div>
+<div class="paragraph">
+<p>For more information about the Jakarta Dependency Injection,
+see the specification at LINK TBD (Formerly <code>http://jcp.org/en/jsr/detail?id=330</code>).</p>
+</div>
+<div class="paragraph">
+<p>For more information about the Jakarta Bean Validation technology, see the
+specification at LINK TBD (Formerly <code>http://jcp.org/en/jsr/detail?id=380</code>).</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFQW"></a><a id="getting-started-with-the-java-ee-8-cts-test-suite"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_6_getting_started_with_the_jakarta_ee_8_cts_test_suite">1.6 Getting Started With the Jakarta EE 8 CTS Test Suite</h3>
+<div class="paragraph">
+<p>Installing, configuring, and using the Jakarta EE 8 CTS involves the
+following general steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download, install, and configure a Jakarta EE 8 CI or Jakarta EE 8 Web
+Profile CI. For example Eclipse GlassFish 5.1.</p>
+</li>
+<li>
+<p>Download and install the Jakarta EE 8 CTS package.</p>
+</li>
+<li>
+<p>Configure your database to work with your CI.</p>
+</li>
+<li>
+<p>Configure CTS to work with your database and CI.</p>
+</li>
+<li>
+<p>Run the CTS tests.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The remainder of this guide explains these steps in detail. If you just
+want to get started quickly with the Jakarta EE 8 CTS using the most basic
+test configuration, refer to <a href="install.html#GBFTP">Chapter 4,
+"Installation."</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="TCKpreface.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="rules.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

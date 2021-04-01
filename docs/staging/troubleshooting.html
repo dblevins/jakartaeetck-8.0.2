@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Troubleshooting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Troubleshooting</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="debug.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="building.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GFAHF"></a><a id="troubleshooting"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_9_troubleshooting">9 Troubleshooting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter explains how to debug test failures that you could
+encounter as you run the Jakarta Platform, Enterprise Edition Compatibility
+Test Suite.</p>
+</div>
+<div class="paragraph">
+<p><a id="GFAUR"></a><a id="common-cts-problems-and-resolutions"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_9_1_common_cts_problems_and_resolutions">9.1 Common CTS Problems and Resolutions</h3>
+<div class="paragraph">
+<p>This section lists common problems that you may encounter as you run the
+Jakarta Platform, Enterprise Edition Compatibility Test Suite software on
+the Jakarta Platform, Enterprise Edition CI, Eclipse GlassFish 5.1. It also proposes resolutions
+for the problems, where applicable.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Problem:<br>
+The following exception may occur when a Jakarta EE 8 CTS test tries to
+write a very long tracelog:<br></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>java.lang.StringIndexOutOfBoundsException: String
+index out of range:
+-13493
+at java.lang.String.substring(String.java:1525)
+at java.lang.String.substring(String.java:1492)
+at javasoft.sqe.javatest.TestResult$Section
+$WritableOutputBuffer.write(TestResult.java:650)
+at java.io.Writer.write(Writer.java:153)
+at java.io.PrintWriter.write(PrintWriter.java: 213)
+at java.io.PrintWriter.write(PrintWriter.java: 229)
+at java.io.PrintWriter.print(PrintWriter.java: 360)
+at java.io.PrintWriter.println(PrintWriter.java:497)
+at javasoft.sqe.javatest.lib.ProcessCommand
+$StreamCopier.run(ProcessCommand.java:331)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The execution of the test will either fail or hang.<br>
+Resolution:<br>
+Set the <code>-Djavatest.maxOutputSize=`nnn system parameter in the
+`runclient</code> and/or <code>gui</code> targets in the <code>&lt;TS_HOME&gt;/bin/build.xml</code> file
+to a value that is higher than the default setting of <code>100,000</code> on the
+JavaTest VM.
+* Problem:<br>
+When you start the Jakarta Platform, Enterprise Edition CI, Eclipse GlassFish 5.1 on
+Windows by using the <code>javaee -verbose</code> command, the system may not find
+the specified path and could display one of the following errors:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">"Verify that JAVA_HOME is set correctly"
+"Verify that JAVAEE_HOME is set correctly"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resolution:<br>
+Set <code>JAVA_HOME</code> to the path where the version of Java being used was
+installed and set <code>JAVAEE_HOME</code> to the location of the Jakarta Platform,
+Enterprise Edition installation directory.
+* Problem:<br>
+If the <code>cts.jar</code> and the <code>tsharness.jar</code> files are not loadable by the
+extension classloader of your Jakarta Platform, Enterprise Edition server,
+the following exception will be displayed in the window where the server
+was started when you attempt to run the tests:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">java.lang.NoClassDefFoundError: com/sun/cts/util
+RemoteLoggingInitException</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resolution:<br>
+Ensure that the <code>cts.jar</code> and <code>tsharness.jar</code> files can be loaded by the
+extension class loader of your Jakarta Platform, Enterprise Edition server.</p>
+</div>
+<div class="paragraph">
+<p><a id="GFAGN"></a><a id="support"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_9_2_support">9.2 Support</h3>
+<div class="paragraph">
+<p>Jakarta EE is a community sponsored and community supported project. If you need additional
+assistance, you can reach out to the specific developer community. You will find the
+list of all Eclipse EE4J projects at ``https://projects.eclipse.org/projects/ee4j`. All the sub-projects
+are listed. Each project page has details regarding how to contact thir developer community.</p>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="debug.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="building.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

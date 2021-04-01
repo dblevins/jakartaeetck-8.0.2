@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Jakarta Authentication Technology Notes and Files</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Jakarta Authentication Technology Notes and Files</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="csiv2logs.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="database-config.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GLAEQ"></a><a id="c-jakarta-authentication-technology-notes-and-files"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_c_jakarta_authentication_technology_notes_and_files">C Jakarta Authentication Technology Notes and Files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta Authentication (formerly jaspic) technology tests are used to verify the compatibility of an
+implementer&#8217;s implementation of the Jakarta Authentication 1.1 specification.</p>
+</div>
+<div class="paragraph">
+<p>This appendix provides information about the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GLAFO">Jakarta Authentication 1.1 Technology Overview</a></p>
+</li>
+<li>
+<p><a href="#GLAFE">Jakarta Authentication TSSV Files</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You run the <code>ant enable.jaspic</code> command to configure the Jakarta EE 8 CI to
+run the Jakarta Authentication tests. After running the Jakarta Authentication tests, you run the
+<code>ant disable.jaspic</code> command to restore the Jakarta EE 8 CI to the state it
+was in before you configured it for running the Jakarta Authentication tests. This is
+required because Jakarta Authentication replaces some of the Jakarta EE 8 CI&#8217;s default
+system security components with CTS security components. If this change
+is not reverted after the tests have been run, the CI&#8217;s system security
+could be left in a partially working state. The CTS security
+<code>AuthConfigFactory</code> and <code>AuthConfigProvider</code>(s) are designed for
+compatibility testing, not the functional completeness that one expects
+from the Jakarta EE 8 CI.</p>
+</div>
+<div class="paragraph">
+<p><a id="GLAFO"></a><a id="c.1-jakarta-authentication-1.1-technology-overview"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_c_1_jakarta_authentication_1_1_technology_overview">C.1 Jakarta Authentication 1.1 Technology Overview</h3>
+<div class="paragraph">
+<p>The Jakarta Authentication 1.1 specification defines a service provider
+interface (SPI) by which authentication providers implementing message
+authentication mechanisms can be integrated in client and server message
+processing runtimes (or containers).</p>
+</div>
+<div class="paragraph">
+<p>Jakarta EE 8 CTS uses a Test Suite SPI Verifier (TSSV) to verify whether
+the vendor&#8217;s message processing runtimes invoke the right SPI in the
+right order.</p>
+</div>
+<div class="paragraph">
+<p>The TSSV includes test suite implementations of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AuthConfigFactory</code></p>
+</li>
+<li>
+<p><code>AuthConfigProvider</code></p>
+</li>
+<li>
+<p><code>AuthConfig(Client &amp; Server)</code></p>
+</li>
+<li>
+<p><code>AuthContext(client &amp; Server)</code></p>
+</li>
+<li>
+<p><code>AuthenticationModules(Client &amp; Server)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The TSSV gets loaded into vendor&#8217;s message processing runtime using one of
+the following two ways as defined by the Jakarta Authentication 1.1 specification:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>By defining a property in <code>JAVA_HOME/jre/lib/security/java.security</code>
+as follows:
+<code>authconfigprovider.factory=com.sun.ts.tests.jaspic.tssv.config.TSAuthConfigFactory</code></p>
+</li>
+<li>
+<p>By calling <code>registerConfigProvider()</code> method in vendor&#8217;s
+<code>AuthConfigFactory</code> with the following values:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Test Suite Provider ClassName</p>
+</li>
+<li>
+<p>Map of properties</p>
+</li>
+<li>
+<p>Message Layer (such as <code>SOAP</code> or <code>HttpServlet</code>)</p>
+</li>
+<li>
+<p>Application Context Identifier</p>
+</li>
+<li>
+<p>A description of the provider</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For the Jakarta EE 8 CTS, we register more than one provider in vendor&#8217;s
+message processing runtime.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In a typical test scenario (for each profile of Servlet or SOAP), an
+application is deployed into a vendor&#8217;s runtime, and a client invokes
+the service. The message policies required for the secure invocations
+are built into the TSSV implementations, and the runtime is analyzed to see
+whether it invokes the right SPIs at the right time.</p>
+</div>
+<div class="paragraph">
+<p>The TSSV uses Java logging APIs to log the client and server invocation into
+a log file (<code>TSSVLog.txt</code>), this log file is used by the TCK tests to
+validate actual logged runtime information against expected results to
+ensure that the runtime is compliant. The <code>jaspic_util_web.war</code> file
+contains the Jakarta Authentication log file processor, which writes output to the
+<code>TSSVLog.txt</code> file. The <code>TSSVLog.txt</code> file is put into the location
+defined by the <code>log.file.location</code> property in the <code>ts.jte</code> file.</p>
+</div>
+<div class="paragraph">
+<p><a id="GLAFE"></a><a id="c.2-jakarta-authentication-tssv-files"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_c_2_jakarta_authentication_tssv_files">C.2 Jakarta Authentication TSSV Files</h3>
+<div class="paragraph">
+<p>The following sections describe the <code>tssv.jar</code>,
+<code>ProviderConfiguration.xml</code>, and <code>provider-configuration.dtd</code> files that
+are used by the Jakarta Authentication TCK tests.</p>
+</div>
+<div class="paragraph">
+<p><a id="GLAGR"></a><a id="c.2.1-tssv.jar-file"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_c_2_1_tssv_jar_file">C.2.1 tssv.jar file</h4>
+<div class="paragraph">
+<p>The <code>tssv.jar</code> file contains classes necessary for populating your
+implementation with a CTS AuthConfigFactory (ACF) as well as information
+used to register CTS providers. The tssv.jar file contains the class
+files for the Test Suite SPI Verifier. The <code>tssv.jar</code> file classes need
+to be loaded by your implementation&#8217;s runtime during startup.</p>
+</div>
+<div class="paragraph">
+<p><a id="GLADE"></a><a id="c.2.2-providerconfiguration.xml-file"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_c_2_2_providerconfiguration_xml_file">C.2.2 ProviderConfiguration.xml file</h4>
+<div class="paragraph">
+<p>The format of the <code>ProviderConfiguration.xml</code> file is a test
+suite-specific format.  The file was designed to contain test provider
+information the test suite uses to populate the ACF with a list of
+providers for testing. The file needs to be copied to the location
+specified in the ts.jte file by the <code>provider.configuration.file</code>
+property. An edit to the <code>ProviderConfiguration.xml</code> file may be
+required for your implementation. The current application context Ids
+are generic and should work as is, but there could be some scenarios in
+which the application Context Ids may need to be altered.</p>
+</div>
+<div class="paragraph">
+<p>The value of the <code>&lt;app-context-id&gt;</code> element in the
+<code>ProviderConfiguration.xml</code> file should reflect what your implementation
+will use for its internal representation of the application context
+identifier for a registered provider. Said differently, the test suite
+registers its providers with information from the
+<code>ProviderConfiguration.xml</code> file but every implementation is not
+guaranteed to use the application context identifier that is used in the
+call to register the configuration provider. This value of the
+<code>&lt;app-context-id&gt;</code> element corresponds to the <code>appContext</code> argument in
+the <code>AuthConfigFactory.registerConfigProvider()</code> API. The API
+documentation for this method indicates that the <code>appContext</code> argument
+may be used but is not guaranteed to be used.</p>
+</div>
+<div class="paragraph">
+<p>The default <code>ProviderConfiguration.xml</code> file should work without
+modification but you may need to alter the value of the
+<code>&lt;app-context-id&gt;</code> element as previously described to accommodate the
+implementation under test. You need to find the correct application
+context identifier for your implementation.</p>
+</div>
+<div class="paragraph">
+<p>You should enable two levels of logging output to get finer levels of
+debugging and tracing information than is turned on by default. This is
+done by setting the <code>traceflag</code> property in the <code>ts.jte</code> file and the
+<code>HARNESS_DEBUG</code> environment variable to <code>true</code>.  If both of these are set,
+application context identifier information should appear in the debug
+output.</p>
+</div>
+<div class="paragraph">
+<p><a id="GLAFZ"></a><a id="c.2.3-provider-configuration.dtd-file"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_c_2_3_provider_configuration_dtd_file">C.2.3 provider-configuration.dtd file</h4>
+<div class="paragraph">
+<p>The <code>provider-configuration.dtd</code> file is a DTD file that resides in the
+same directory as the <code>ProviderConfiguration.xml</code> file and describes the
+<code>ProviderConfiguration.xml</code> file. This file should not be edited.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="csiv2logs.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="database-config.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

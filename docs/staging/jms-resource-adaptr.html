@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Testing a Standalone Jakarta Messaging Resource Adapter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Testing a Standalone Jakarta Messaging Resource Adapter</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="contextrootmappingrules.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="CJGFHFIF"></a><a id="g-testing-a-standalone-jakarta-messaging-resource-adapter"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_g_testing_a_standalone_jakarta_messaging_resource_adapter">G Testing a Standalone Jakarta Messaging Resource Adapter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This appendix explains how to set up and configure a Jakarta EE 8 CI and
+Jakarta EE 8 CTS so a standalone Jakarta Messaging resource adapter can be tested.</p>
+</div>
+<div class="paragraph">
+<p>This appendix covers the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#CJGGIEEJ">Setting Up Your Environment</a></p>
+</li>
+<li>
+<p><a href="#CJGDJCEC">Configuring Jakarta EE 8 CTS</a></p>
+</li>
+<li>
+<p><a href="#CJGFCJBA">Configuring a Jakarta EE 8 CI for the Standalone Jakarta Messaging
+Resource Adapter</a></p>
+</li>
+<li>
+<p><a href="#CJGEBECH">Modifying the Runtime Deployment Descriptors for the
+Jakarta Messaging MDB and Resource Adapter Tests</a></p>
+</li>
+<li>
+<p><a href="#CJGFHCBJ">Running the Jakarta Messaging Tests From the Command Line</a></p>
+</li>
+<li>
+<p><a href="#CJGCJGIH">Restoring the Runtime Deployment Descriptors for the
+Jakarta Messaging MDB and Resource Adapter Tests</a></p>
+</li>
+<li>
+<p><a href="#CJGCDGIG">Reconfiguring Jakarta EE 8 CI for Jakarta EE 8 CTS After
+Testing the Standalone Jakarta Messaging Resource Adapter</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="CJGGIEEJ"></a><a id="g.1-setting-up-your-environment"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_g_1_setting_up_your_environment">G.1 Setting Up Your Environment</h3>
+<div class="paragraph">
+<p>Before you can run the Jakarta Messaging CTS tests against a standalone Jakarta Messaging Resource
+Adapter using a Jakarta EE 8 CI, you must install the following
+components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java SE 8 software</p>
+</li>
+<li>
+<p>Jakarta EE 8 CI software such as Eclipse GlassFish 5.1</p>
+</li>
+<li>
+<p>Jakarta EE 8 CTS software</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Complete the following steps to set up Eclipse GlassFish 5.1 in your environment:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set the following environment variables in your shell environment:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>JAVA_HOME to the directory where the Java SE 8 software has been
+installed</p>
+</li>
+<li>
+<p>JAVAEE_HOME to the directory where the Jakarta EE 8 CI (Eclipse GlassFish 5.1) software has been
+installed</p>
+</li>
+<li>
+<p>TS_HOME to the directory where the Jakarta EE 8 CTS software has been
+installed</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Update your PATH environment variable to include the following
+directories: JAVA_HOME/bin, JAVAEE_HOME/bin, TS_HOME/bin, and
+ANT_HOME/bin.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="CJGDJCEC"></a><a id="g.2-configuring-java-ee-8-cts"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_g_2_configuring_jakarta_ee_8_cts">G.2 Configuring Jakarta EE 8 CTS</h3>
+<div class="paragraph">
+<p>The <code>ts.jte</code> file includes properties that must be set for testing a
+standalone Jakarta Messaging Resource Adapter using the Jakarta EE 8 CI. The Jakarta Messaging Resource
+Adapter documentation in the <code>ts.jte</code> file should help you understand
+what you need to set in this step of the testing process.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set the following properties in the <code>ts.jte</code> file:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>javaee.home to the location where the Jakarta EE 8 CI is installed</p>
+</li>
+<li>
+<p>Use the default value or enter a new host name for the <code>orb.host</code>
+property</p>
+</li>
+<li>
+<p>Use the default value or enter a new port number for the
+`orb.port`property</p>
+</li>
+<li>
+<p><code>test.sa.jmsra</code> to true</p>
+</li>
+<li>
+<p><code>jmsra.rarfile</code> to the location of the standalone Jakarta Messaging Resource Adapter
+RAR file</p>
+</li>
+<li>
+<p><code>jmsra.jarfile</code> to the location of the standalone Jakarta Messaging Resource Adapter
+JAR file</p>
+</li>
+<li>
+<p><code>jmsra.name</code> to the name of the Jakarta Messaging Resource Adapter under test</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add <code>$\{jmsra.jarfile}</code> to the beginning or at the end of the
+AppClient classpath:<br>
+<code>APPCPATH=</code> list of classes and jars followed by
+<code>$\{pathsep}$\{jmsra.jarfile}\</code><br>
+The <code>jmsra.jarfile</code>, which contains all the Jakarta Messaging Resource Adapter
+classes, needs to be added to the AppClient classpath in the <code>ts.jte</code>
+file. This JAR file will also be copied to the appropriate directory in
+your Jakarta EE 8 environment when the <code>config.vi</code> Ant task, which is
+described in the next section, is invoked. For the Jakarta EE 8 CI Eclipse GlassFish 5.1, the
+file is copied to the <code>JAVAEE_HOME/lib</code> directory.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="CJGFCJBA"></a><a id="g.3-configuring-the-jakarta-ee-8-CI-for-the-standalone-jakarta-messaging-resource-adapter"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_g_3_configuring_a_jakarta_ee_8_ci_for_the_standalone_jakarta_messaging_resource_adapter">G.3 Configuring a Jakarta EE 8 CI for the Standalone Jakarta Messaging Resource Adapter</h3>
+<div class="paragraph">
+<p>Invoke the config.vi Ant task to configure the Jakarta EE 8 CI, Eclipse GlassFish 5.1 for CTS 8
+and the standalone Jakarta Messaging Resource Adapter:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change to the <code>TS_HOME/bin</code> directory.</p>
+</li>
+<li>
+<p>Execute the <code>config.vi</code> Ant task.<br>
+The config.vi Ant task executes scripts, which configure your Jakarta EE 8
+environment for CTS 8. One of the ant scripts that gets executed will
+configure and deploy the standalone Jakarta Messaging Resource Adapter, copy the JAR
+file containing the classes for the standalone Jakarta Messaging Resource Adapter to
+the <code>JAVAEE_HOME/lib</code> directory, create the Jakarta Messaging connector connect ion
+pools and resources, and create the necessary Jakarta Messaging administration
+objects. The following Ant scripts are called by the <code>config.vi</code> Ant task:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>TS_HOME/bin/xml/impl/glassfish/jmsra.xml</p>
+</li>
+<li>
+<p>TS_HOME/bin/xml/impl/glassfish/templates/create.jmsra.template<br>
+The script TS_HOME/bin/xml/impl/glassfish/jmsra.xml calls the template
+file <code>TS_HOME/bin/xml/impl/glassfish/templates/create.jmsra.template,</code>
+which handles the creation of the Jakarta Messaging connector connection pools, the
+Jakarta Messaging connector resources and the Jakarta Messaging administration objects.<br>
+These scripts are written for the standalone Generic Jakarta Messaging Resource
+Adapter (GenericJMSRA) for the Jakarta EE 8 CI. If you are using a
+different Jakarta EE 8 environment, you will need to rewrite these scripts
+for that environment. If you are using a different standalone Jakarta Messaging
+resource adapter, you will need to rewrite these scripts for that Jakarta Messaging
+resource adapter.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="CJGEBECH"></a><a id="g.4-modifying-the-runtime-deployment-descriptors-for-the-jakarta-messaging-mdb-and-resource-adapter-tests"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_g_4_modifying_the_runtime_deployment_descriptors_for_the_jakarta_messaging_mdb_and_resource_adapter_tests">G.4 Modifying the Runtime Deployment Descriptors for the Jakarta Messaging MDB and Resource Adapter Tests</h3>
+<div class="paragraph">
+<p>After the standalone Jakarta Messaging Resource Adapter has been configured and
+deployed and the required Jakarta Messaging connector connection pools, Jakarta Messaging connector
+resources, and Jakarta Messaging administration objects have been created, the
+<code>glassfish-ejb-jar</code> runtime deployment descriptor XML files must be
+modified for the Jakarta Messaging MDB and Resource Adapter tests. An Ant task handles
+the modifications.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change to the <code>TS_HOME/bin</code> directory.</p>
+</li>
+<li>
+<p>Execute the following Ant task:<br>
+<code>ant -f xml/impl/glassfish/jmsra.xml modify-jmsmdbejbxml</code><br></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This Ant target modifies the glassfish-ejb-jar runtime deployment
+descriptor XML files in the distribution directory of the Jakarta Messaging MDB and
+Resource Adapter test directories that exist under
+<code>TS_HOME/src/com/sun/ts/tests/jms/ee/mdb and TS_HOME/src/com/sun/ts/tests/jms/ee20/ra.</code><br>
+The modified <code>glassfish-ejb-jar</code> runtime deployment descriptor XML files
+exist under the<br>
+<code>TS_HOME/src/com/sun/ts/tests/jms/commonee/xml/descriptors/genericra</code>
+directory. These files are copied into the correct distribution test
+directory under
+<code>TS_HOME/dist/com/sun/ts/tests/jms/ee/mdb and TS_HOME/dist/com/sun/ts/tests/jms/ee20/ra</code>.<br>
+The <code>&lt;mdb-resource-adapter&gt;</code> information for the standalone Jakarta Messaging Resource
+Adapter being tested is added to the <code>glassfish-ejb-jar runtime</code>
+deployment descriptor XML files. In the default case, the resource
+adapter being tested is the Generic Jakarta Messaging Resource Adapter
+(GenericJMSRA). If you are using a different Jakarta EE 8 environment, your
+runtime deployment descriptor XML files will need to be vendor specific.
+In this case, you will need to modify the Ant script to handle your
+vendor-specific runtime deployment descriptor XML files.</p>
+</div>
+<div class="paragraph">
+<p><a id="CJGFHCBJ"></a><a id="g.5-running-the-jakarta-messaging-tests-from-the-command-line"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_g_5_running_the_jakarta_messaging_tests_from_the_command_line">G.5 Running the Jakarta Messaging Tests From the Command Line</h3>
+<div class="paragraph">
+<p>Run the Jakarta Messaging tests:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change to the <code>TS_HOME/src/com/sun/ts/tests/jms</code> directory.</p>
+</li>
+<li>
+<p>Invoke the <code>runclient</code> Ant target:<br>
+<code>ant runclient</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="CJGCJGIH"></a><a id="g.6-restoring-the-runtime-deployment-descriptors-for-the-jakarta-messaging-mdb-and-resource-adapter-tests"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_g_6_restoring_the_runtime_deployment_descriptors_for_the_jakarta_messaging_mdb_and_resource_adapter_tests">G.6 Restoring the Runtime Deployment Descriptors for the Jakarta Messaging MDB and Resource Adapter Tests</h3>
+<div class="paragraph">
+<p>After you run the Jakarta Messaging tests against your standalone Jakarta Messaging Resource
+Adapter, you need to restore the Jakarta Messaging MDB and Resource Adapter tests.
+Jakarta EE 8 CTS provides an Ant task that handles the restoration. Invoke
+the following Ant task to restore the Jakarta Messaging MDB and Resource Adapter
+<code>glassfish-ejb-jar</code> runtime deployment descriptor XML files to their
+previous state:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change to the <code>TS_HOME/bin</code> directory.</p>
+</li>
+<li>
+<p>Invoke the following Ant target:<br>
+<code>ant -f xml/impl/glassfish/jmsra.xml restore-jmsmdbejbxml</code><br></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If you are using another Jakarta EE 8 environment, these runtime deployment
+descriptor XML files will be vendor specific. In this case, you will
+need to modify the Ant script to handle the vendor-specific runtime
+deployment descriptor XML files appropriate for your environment.</p>
+</div>
+<div class="paragraph">
+<p><a id="CJGCDGIG"></a><a id="g.7-reconfiguring-jakarta-ee-8-CI-for-jakarta-ee-8-cts-after-testing-the-standalone-jakarta-messaging-resource-adapter"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_g_7_reconfiguring_jakarta_ee_8_ci_for_jakarta_ee_8_cts_after_testing_the_standalone_jakarta_messaging_resource_adapter">G.7 Reconfiguring Jakarta EE 8 CI for Jakarta EE 8 CTS After Testing the Standalone Jakarta Messaging Resource Adapter</h3>
+<div class="paragraph">
+<p>After you finish testing the standalone Jakarta Messaging Resource Adapter, you need
+to reconfigure the Jakarta EE 8 CI before you can continue testing with
+Jakarta EE 8 CTS:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change to the <code>TS_HOME/bin</code> directory.</p>
+</li>
+<li>
+<p>Invoke the <code>clean.vi</code> Ant target:<br>
+<code>ant clean.vi</code></p>
+</li>
+<li>
+<p>Set the following properties in the <code>ts.jte</code> file:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>javaee.home to the location where the Jakarta EE 8 CI is installed</p>
+</li>
+<li>
+<p>Use the default value for the <code>orb.host</code> property or enter a new host
+name</p>
+</li>
+<li>
+<p>Use the default value for the <code>orb.port</code> property or enter a new port
+number</p>
+</li>
+<li>
+<p><code>test.sa.jmsra</code> to false</p>
+</li>
+<li>
+<p>Unset the <code>jmsra.rarfile</code> property</p>
+</li>
+<li>
+<p>Unset the <code>jmsra.jarfile</code> property</p>
+</li>
+<li>
+<p>Reset the <code>jmsra.name</code> property to <code>jmsra</code> to refer to the Jakarta Messaging
+Resource Adapter for the Jakarta EE 8 CI</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>From the TS_HOME/bin directory, invoke the config.vi Ant task to
+reconfigure the Jakarta EE 8 CI for Jakarta EE 8 CTS:<br>
+<code>ant config.vi</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="contextrootmappingrules.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

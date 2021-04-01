@@ -1,0 +1,1383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Executing Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Executing Tests</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="webprofileconfig.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="debug.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GBFWO"></a><a id="executing-tests"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_7_executing_tests">7 Executing Tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta EE 8 CTS uses the JavaTest harness to execute the tests in the
+test suite. For detailed instructions that explain how to run and use
+JavaTest, see the JavaTest User&#8217;s Guide and Reference.</p>
+</div>
+<div class="paragraph">
+<p>This chapter includes the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GFADX">Jakarta EE 8 CTS Operating Assumptions</a></p>
+</li>
+<li>
+<p><a href="#GBFUZ">Starting JavaTest</a></p>
+</li>
+<li>
+<p><a href="#GFACS">Validating Your Test Configuration</a></p>
+</li>
+<li>
+<p><a href="#GBFWM">Running a Subset of the Tests</a></p>
+</li>
+<li>
+<p><a href="#GBFVK">Test Reports</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The instructions in this chapter assume that you have installed and
+configured your test environment as described
+in<a href="install.html#GBFTP">Chapter 4, "Installation,"</a> and
+<a href="config.html#GBFVV">Chapter 5, "Setup and Configuration,"</a>
+respectively.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a id="GFADX"></a><a id="jakarta-ee-8-cts-operating-assumptions"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_7_1_jakarta_ee_8_cts_operating_assumptions">7.1 Jakarta EE 8 CTS Operating Assumptions</h3>
+<div class="paragraph">
+<p>The following are assumed in this chapter:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta EE 8 CI is installed and configured as described in this guide.</p>
+</li>
+<li>
+<p>Detailed configuration will vary from product to product. In this guide, we provide details
+for configuring the Jakarta EE CI, Eclipse GlassFish 5.1. If you are using another CI, refer to that
+product&#8217;s setup and configuration documentation.</p>
+</li>
+<li>
+<p>Java SE 8 software is correctly installed and configured on the host
+machine.</p>
+</li>
+<li>
+<p>Jakarta EE 8 CTS is installed and configured as described in this guide.</p>
+</li>
+<li>
+<p>Implementations of the technologies to be tested are properly
+installed and configured.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GBFUZ"></a><a id="starting-javatest"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_2_starting_javatest">7.2 Starting JavaTest</h3>
+<div class="paragraph">
+<p>There are two general ways to run Jakarta EE 8 CTS using the JavaTest
+harness software:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Through the JavaTest GUI</p>
+</li>
+<li>
+<p>From the command line in your shell environment</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Running the JavaTest harness from JavaTest GUI is recommended for
+initial configuration procedures, for validating your configuration, for
+selecting tests to run, and for general ease-of-use when running tests
+and viewing test reports.</p>
+</div>
+<div class="paragraph">
+<p>Running the JavaTest harness from the command line is useful in headless
+server configurations, and for running tests in batch mode.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>build.xml</code> file in <code>&lt;TS_HOME&gt;/bin</code> contains the various Ant
+targets for the Jakarta EE 8 CTS test suite</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a id="GBFWH"></a><a id="to-start-javatest-in-gui-mode"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_7_2_1_to_start_javatest_in_gui_mode">7.2.1 To Start JavaTest in GUI Mode</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set the <code>TS_HOME</code> environment variable to the directory in which the
+Jakarta EE 8 CTS is installed.</p>
+</li>
+<li>
+<p>Change to the <code>&lt;TS_HOME&gt;/bin</code> directory.</p>
+</li>
+<li>
+<p>Ensure that the <code>ts.jte</code> file contains information relevant to your
+setup.<br>
+Refer to <a href="config.html#GBFVV">Chapter 5, "Setup and Configuration,"</a>
+for detailed configuration instructions.</p>
+</li>
+<li>
+<p>Execute the <code>ant gui</code> target to start the JavaTest GUI:<br></p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ant gui</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using the JavaTest GUI to run CTS tests is described later in this
+guide. For detailed information about using the JavaTest interface, see
+the JavaTest User&#8217;s Guide.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The forward and reverse keywords are available to filter the interop
+and/or rebuildable tests during a selected test run when running tests
+in the following directory only:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">&lt;TS_HOME&gt;/src/com/sun/ts/tests/interop</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Forward tests are interop tests that run from the Vendor Implementation
+to the Compatible Implementation, as well as rebuildable tests that run
+only against the Vendor Implementation. Reverse tests (with test names
+ending in <code>_reverse</code>) are interop tests that run from the Compatible
+Implementation to the Vendor Implementation, as well as rebuildable
+tests that run only against the Compatible Implementation.</p>
+</div>
+<div class="paragraph">
+<p>To set one of these keywords in the Javatest GUI, select the Configure
+menu item, then select Change Configuration, then select Keywords, and
+set the appropriate keyword.</p>
+</div>
+<div class="paragraph">
+<p>When one of these keywords has been set, executing tests in the
+directories above causes only those tests that match the keyword to be
+run. This can be useful when trying to debug failures with a particular
+test configuration. Note, however, for certification all tests in both
+directions must pass.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a id="GFAEF"></a><a id="to-start-javatest-in-command-line-mode"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_7_2_2_to_start_javatest_in_command_line_mode">7.2.2 To Start JavaTest in Command-Line Mode</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set the <code>TS_HOME</code> environment variable to the directory in which
+Jakarta EE 8 CTS was installed.</p>
+</li>
+<li>
+<p>Change to any subdirectory under <code>&lt;TS_HOME&gt;/src/com/sun/ts/tests</code>.</p>
+</li>
+<li>
+<p>Ensure that the <code>ts.jte</code> file contains information relevant to your
+setup.<br>
+Refer to <a href="config.html#GBFVV">Chapter 5, "Setup and Configuration,"</a>
+for detailed configuration instructions.</p>
+</li>
+<li>
+<p>Execute the <code>runclient</code> Ant target to start the JavaTest:<br></p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ant runclient</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This runs all tests in the current directory and any subdirectories.</p>
+</div>
+<div class="sect4">
+<h5 id="GCMCU">Example 7-1 Running the Jakarta EE 8 CTS Signature Tests</h5>
+<div class="paragraph">
+<p>To run the Jakarta EE 8 CTS signature tests, enter the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests/signaturetest/javaee
+ant runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="GCMBV">Example 7-2 Running a Single Test Directory</h5>
+<div class="paragraph">
+<p>To run a single test directory in the <code>forward</code> direction, enter the
+following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests/jaxws/api/javax_xml_ws/Dispatch
+ant -Dkeywords=forward runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="GCMCA">Example 7-3 Running a Subset of Test Directories</h5>
+<div class="paragraph">
+<p>To run a subset of test directories in the <code>reverse</code> direction, enter
+the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests/jaxws/api
+ant -Dkeywords=reverse runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="GFACS"></a><a id="validating-your-test-configuration"></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_3_validating_your_test_configuration">7.3 Validating Your Test Configuration</h3>
+<div class="paragraph">
+<p><a id="GFADI"></a><a id="to-validate-your-configuration-in-gui-mode"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_7_3_1_to_validate_your_configuration_in_gui_mode">7.3.1 To Validate Your Configuration in GUI Mode</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the JavaTest GUI and step through the basic configuration
+steps, if required, as described in <a href="config.html#GEYOD">Section 5.5.2,
+"The Configuration Interview."</a></p>
+</li>
+<li>
+<p>In the JavaTest GUI tree view, expand the following directories:
+<code>com</code>, <code>sun</code>, <code>ts</code>, <code>tests</code>, <code>samples</code>.</p>
+</li>
+<li>
+<p>Highlight the <code>samples</code> directory, right-click, and choose <strong>Execute
+These Tests</strong>.<br>
+If a work directory has not been specified, you are prompted to specify
+or create a new one.</p>
+</li>
+<li>
+<p>From the <strong>JavaTest</strong> main menu, select <strong>File</strong>, then select <strong>Create Work
+Directory</strong>. The <strong>Create Work Directory</strong> dialog is displayed.</p>
+</li>
+<li>
+<p>Locate or enter the name of the directory to which the test harness
+will write temporary files (for example, <code>/tmp/JTWork</code>), and click
+<strong>Create</strong>.</p>
+</li>
+<li>
+<p>From the JavaTest main menu, select <strong>Run Tests</strong>, then select <strong>Start</strong> to
+run the default tests.<br>
+If your configuration information is incomplete, you are prompted to
+supply the missing parameters.<br>
+The JavaTest status bar grows while JavaTest tracks statistics relative
+to the files done, tests found, and tests done.</p>
+</li>
+<li>
+<p>Check the results.<br>
+Test progress and results are displayed by the JavaTest harness.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="GFACO"></a><a id="to-validate-your-configuration-in-command-line-mode"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_7_3_2_to_validate_your_configuration_in_command_line_mode">7.3.2 To Validate Your Configuration in Command-Line Mode</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to the <code>&lt;TS_HOME&gt;/src/com/sun/ts/tests/samples</code> directory.</p>
+</li>
+<li>
+<p>Start the the test run by executing the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All sample tests will be run, and should pass.</p>
+</div>
+</li>
+<li>
+<p>Generate test reports by executing the following commands:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Change to the <code>&lt;TS_HOME&gt;/bin</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/bin</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the <code>report</code> Ant target:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant report</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Reports are written to the report directory you specified in
+<code>&lt;TS_HOME&gt;/bin/ts.jte</code>. If no report directory is specified, reports are
+written to the <code>/tmp/JTreport</code> directory (Solaris/Linux) or
+<code>C:\temp\JTreport</code> (Windows).</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="GBFWM"></a><a id="running-a-subset-of-the-tests"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_4_running_a_subset_of_the_tests">7.4 Running a Subset of the Tests</h3>
+<div class="paragraph">
+<p><a id="GBFVT"></a><a id="to-run-a-subset-of-tests-in-gui-mode"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_7_4_1_to_run_a_subset_of_tests_in_gui_mode">7.4.1 To Run a Subset of Tests in GUI Mode</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the JavaTest main menu, select <strong>Configure</strong>, then select <strong>Edit
+Configuration</strong>.</p>
+</li>
+<li>
+<p>In the Configuration Editor, select <strong>Specify Tests to Run?</strong> from the
+option list on the left.<br>
+You are asked whether you want to run all or a subset of the test suite.</p>
+</li>
+<li>
+<p>Click <strong>Yes</strong>, and then <strong>Next</strong> to run a subset of tests.</p>
+</li>
+<li>
+<p>Select the tests you want to run from the displayed test tree, and
+then click <strong>Done</strong>.<br>
+You can select entire branches of the test tree, or use <code>Ctrl+Click</code> or
+<code>Shift+Click</code> to select multiple tests or ranges of tests, respectively.<br>
+After clicking <strong>Done</strong>, you are returned to the JavaTest main window.</p>
+</li>
+<li>
+<p>Select <strong>Run Tests</strong>, then select <strong>Start</strong> to run the tests you selected.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="GBFWK"></a><a id="to-run-a-subset-of-tests-in-command-line-mode"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_7_4_2_to_run_a_subset_of_tests_in_command_line_mode">7.4.2 To Run a Subset of Tests in Command-Line Mode</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change to the directory containing the tests you want to run.<br>
+For example, <code>&lt;TS_HOME&gt;/src/com/sun/ts/tests/samples</code>.</p>
+</li>
+<li>
+<p>Start the test run by executing the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The tests in <code>&lt;TS_HOME&gt;/src/com/sun/ts/tests/samples</code> and its
+subdirectories are run.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="GBFVL"></a><a id="to-run-a-subset-of-tests-in-batch-mode-based-on-prior-result-status"></a></p>
+</div>
+<div class="paragraph">
+<p>7.4.3 To Run a Subset of Tests in Batch Mode Based on Prior Result
+Status
+<sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup>^</p>
+</div>
+<div class="paragraph">
+<p>You can run certain tests in batch mode based on the test&#8217;s prior run
+status by specifying the <code>priorStatus</code> system property when invoking
+Ant.</p>
+</div>
+<div class="paragraph">
+<p>Invoke <code>ant</code> with the <code>priorStatus</code> property.</p>
+</div>
+<div class="paragraph">
+<p>The accepted values for the <code>priorStatus</code> property are any combination
+of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fail</code></p>
+</li>
+<li>
+<p><code>pass</code></p>
+</li>
+<li>
+<p><code>error</code></p>
+</li>
+<li>
+<p><code>notRun</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, you could run all Jakarta EE 8 tests with a status of failed
+and error by invoking the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests/ejb
+ant -DpriorStatus="fail,error" runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that multiple <code>priorStatus</code> values must be separated by commas.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref25"></a><a id="using-keywords-to-test-required-and-optional-technologies"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_5_using_keywords_to_test_required_and_optional_technologies">7.5 Using Keywords to Test Required and Optional Technologies</h3>
+<div class="paragraph">
+<p>The Jakarta EE CTS includes some tests that may be optional depending on
+your implementation. For example, certain technologies are now optional
+for implementations of the full Jakarta EE Platform. There are other
+technologies which are optional for Web Profile implementations, but may
+be implemented. If implemented, optional tests must be run and pass.
+There are two mechanisms in place in the CTS which control whether or
+not a given set of tests is run - the <code>javaee.level</code> property in the
+<code>ts.jte</code> file (see <a href="#BCGBAHFF">Section 7.5.1, "Setting the
+javaee.level Property"</a>) and keywords (see <a href="#BCGHGJIC">Section 7.5.2,
+"Using Keywords to Create Groups and Subsets of Tests"</a>).</p>
+</div>
+<div class="paragraph">
+<p><a id="BCGBAHFF"></a><a id="setting-the-javaee.level-property"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_7_5_1_setting_the_javaee_level_property">7.5.1 Setting the javaee.level Property</h4>
+<div class="paragraph">
+<p>The <code>ts.jte</code> file includes the <code>javaee.level</code> property. This property
+serves two purposes. First, it is used to determine whether the
+implementation under test is a Jakarta EE Full profile (full) or Jakarta EE
+Web profile (web). Either "full" or "web" must be specified in the list
+values. A setting of "full" instructs the test harness to deploy EAR
+files. A setting of "web" instructs the test harness to deploy WAR
+files. The <code>javaee.level</code> property is also used to help determine which
+APIs in the signature tests are to be tested. The comments that precede
+the property setting in the <code>ts.jte</code> file provide additional information
+about setting this property.</p>
+</div>
+<div class="paragraph">
+<p>The default setting is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">javaee.level=full jaxr jaxrpc javaeedeploy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="BCGHGJIC"></a><a id="using-keywords-to-create-groups-and-subsets-of-tests"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_7_5_2_using_keywords_to_create_groups_and_subsets_of_tests">7.5.2 Using Keywords to Create Groups and Subsets of Tests</h4>
+<div class="paragraph">
+<p>Each test in CTS has keywords associated with it. The keywords are used
+to create groups and subsets of tests. At test execution time, a user
+can tell the test harness to only run tests with or without certain
+keywords. This mechanism is used to select or omit testing on selected
+optional technologies. The "keywords" property can be set to a set of
+available keywords joined by "&amp;" and/or "|".</p>
+</div>
+<div class="paragraph">
+<p>To set the keywords system property at runtime, you must either pass it
+on the command line via <code>-Dkeywords=""</code> or in the JavaTest GUI, by
+opening the test suite and performing the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select <strong>View</strong>, then select <strong>Filters</strong>, then select <strong>CurrentConfiguration</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Configure</strong>, then select <strong>ChangeConfiguration</strong>, then select
+<strong>Keywords</strong>.</p>
+</li>
+<li>
+<p>In the Keywords dialog, select the Select <strong>Tests that Match</strong> check
+box, specify the desired keyword in the field, then click <strong>Done</strong>.<br>
+Only tests that have been tagged with that keyword will be enabled in
+the test tree.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The examples in the sections that follow show how to use keywords to run
+required technologies in both the Full and Web profile, run/omit running
+optional sets of tests in CTS, and run the Interoperability and
+Rebuildable tests in forward and reverse directions.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref26"></a><a id="to-use-keywords-to-run-required-technologies"></a></p>
+</div>
+<div class="sect4">
+<h5 id="_7_5_2_1_to_use_keywords_to_run_required_technologies">7.5.2.1 To Use Keywords to Run Required Technologies</h5>
+
+</div>
+<div class="sect4">
+<h5 id="sthref27">Example 7-4 Running Tests for Required Technologies in the Full Profile</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords=javaee runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Only tests that are required by the Full Profile will be run.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref28">Example 7-5 Running Tests for All Required Technologies in the Web Profile</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords=javaee_web_profile runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Only tests that are required by the Web Profile will be run.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref29">Example 7-6 Running All Required Tests Except Connector Tests in the Full Profile</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords="javaee &amp; !connector" runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref30">Example 7-7 Running All EJB Tests in the Full Profile</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords=ejb runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref31">Example 7-8 Running All EJB 3.2 Tests in the Full Profile</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords=ejb32 runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref32">Example 7-9 Running All EJB Tests in the Web Profile</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords=ejb_web_profile runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="sthref33"></a><a id="to-use-keywords-to-run-optional-technologies-with-the-full-profile"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_7_5_2_2_to_use_keywords_to_run_optional_technologies_with_the_full_profile">7.5.2.2 To Use Keywords to Run Optional Technologies With the Full Profile</h5>
+<div class="paragraph">
+<p>Keywords can be used to run subsets of tests from areas that are not
+required by the Jakarta EE 8 platform specification. <a href="#BAGGCEJC">Table
+7-1</a> lists optional subsets of tests that can be run for the Full
+Profile and provides the technology-to-keyword mappings for each of the
+optional areas.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref34"></a><a id="BAGGCEJC"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_table_7_1_keyword_to_technology_mappings_for_full_profile_optional">Table 7-1 Keyword to Technology Mappings for Full Profile Optional</h5>
+<div class="paragraph">
+<p>Subsets</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Technology</th>
+<th class="tableblock halign-left valign-top">Keyword</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EJB 1.x, CMP, BMP, entity beans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_1x_optional or</code> <code>javaee_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EJB 2.x, CMP, BMP, entity beans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_2x_optional</code> or <code>javaee_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EJBQL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javaee_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Deployment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javaeedeploy_optional</code> or <code>javaee_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JAXR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javaee_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JAX-RPC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">javaee_optional</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="sthref35">Example 7-10 Running Tests for All Optional Technologies in the Full Profile</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords=javaee_optional runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref36">Example 7-11 Running the Optional JAXR and JAX-RPC Tests With the Required Full Profile Tests</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords="javaee | jaxr | jaxrpc" runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The optional JAXR and JAX-RPC tests and the tests that are required by
+the Full Profile will be run.</p>
+</div>
+<div class="paragraph">
+<p><a id="GKKFN"></a><a id="to-use-keywords-to-run-optional-subsets-of-tests-with-the-web-profile"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_7_5_2_3_to_use_keywords_to_run_optional_subsets_of_tests_with_the_web_profile">7.5.2.3 To Use Keywords to Run Optional Subsets of Tests With the Web Profile</h5>
+<div class="paragraph">
+<p>Keywords can be used to run subsets of tests from additional areas that
+are not required by the Jakarta EE 8 Web Profile specification. For
+example, if your server implements the Jakarta EE 8 Web Profile and the
+Jakarta Connector Architecture 1.7 technology, set the keywords to
+<code>javaee_web_profile|connector_web_profile</code> to enable running tests for
+both areas. The command below shows how to specify these keywords to run
+the tests in both areas.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant -Dkeywords="(javaee_web_profile|connector_web_profile) runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#GLAEV">Table 7-2</a> lists optional subsets of tests that can be run
+for the Web Profile and provides the technology-to-keyword mappings for
+each of the optional areas.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref37"></a><a id="GLAEV"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_table_7_2_keyword_to_technology_mappings_for_web_profile_optional">Table 7-2 Keyword to Technology Mappings for Web Profile Optional</h5>
+<div class="paragraph">
+<p>Subsets</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Technology</th>
+<th class="tableblock halign-left valign-top">Keyword</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Connectors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector_web_profile</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Authorization (formerly JACC)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jacc_web_profile</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Authentication (formerly JASPIC)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jaspic_web_profile</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Mail (formerly JavaMail)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javamail_web_profile</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Registries (formerly JAXR)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jaxr_web_profile</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta XML RPC (formerly JAX-RPC)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jaxrpc_web_profile</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Messaging(formerly JMS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jms_web_profile</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xa_web_profile</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To add tests for other technologies, select the appropriate keyword from
+<a href="#GLAEV">Table 7-2</a>. This table provides a mapping of keywords to
+optional technologies (test directories) in the test suite and indicates
+optional test areas for the Jakarta EE 8 Web Profile.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref38">Example 7-12 Running Tests for All Optional Technologies in the Web Profile</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords=javaee_web_profile_optional runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref39">Example 7-13 Running the Optional Jakarta Authorization and Authentication Tests With All Required Web Profile Tests</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/src/com/sun/ts/tests
+ant -Dkeywords="javaee_web_profile | jacc_web_profile | jaspic_web_profile" runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="sthref40"></a><a id="to-use-keywords-to-run-optional-subsets-for-jakarta-enterprise-beans-lite"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_7_5_2_4_to_use_keywords_to_run_optional_subsets_for_jakarta_enterprise_beans_lite">7.5.2.4 To Use Keywords to Run Optional Subsets for Jakarta Enterprise Beans Lite</h5>
+<div class="paragraph">
+<p>Table 1-1 shows the CTS keywords you can use to test optional Jakarta Enterprise Beans (formerly EJB) Lite
+components. Components denoted with an asterisk (*) are pruned
+components; components without an asterisk are not required by EJB Lite.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref41"></a><a id="sthref42"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_table_7_3_cts_keywords_for_optional_jakarta_enterprise_beans_lite_components">Table 7-3 CTS Keywords for Optional Jakarta Enterprise Beans Lite Components</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component</th>
+<th class="tableblock halign-left valign-top">CTS Keyword</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message-Driven Beans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_mdb_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1x CMP/BMP Entity Beans *</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ejb_1x_optional</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2x CMP/BMP Entity Beans, Remote/Home Component, Local/Home Component *</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_2x_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3x Remote</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_3x_remote_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JAX-RPC Web Service Endpoint *</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_jaxrpc_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EJB QL *</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_ql_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Persistent Timer Service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_persistent_timer_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote asyncrhonous session bean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_remote_async_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RMI-IIOP Interoperability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_rmi_interop_optional</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EJB Embeddable Container</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb_embeddable_optional</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Support for the following features has been made optional in this
+release:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>EJB 2.1 and earlier Entity Bean Component Contract for
+Container-Managed Persistence and Bean-Managed Persistence</p>
+</li>
+<li>
+<p>Client View of an EJB 2.1 and earlier Entity Bean</p>
+</li>
+<li>
+<p>EJB QL: Query Language for Container-Managed Persistence Query Methods</p>
+</li>
+<li>
+<p>Jakarta RESTful Web Services (formerly JAX-RPC) Based Web Service Endpoints</p>
+</li>
+<li>
+<p>Jakarta XML-RPC (formerly JAX-RPC) Web Service Client View</p>
+</li>
+<li>
+<p>Jakarta Registries (formerly JAXR) 1.0</p>
+</li>
+<li>
+<p>Jakarta Deployment 1.2 are also optional</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="sthref43"></a><a id="to-use-keywords-to-run-tests-in-selected-vehicles"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_7_5_2_5_to_use_keywords_to_run_tests_in_selected_vehicles">7.5.2.5 To Use Keywords to Run Tests in Selected Vehicles</h5>
+<div class="paragraph">
+<p>The following vehicle keywords can be used to select or exclude the
+vehicles in which tests are run:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>connectorservlet_vehicle</p>
+</li>
+<li>
+<p>ejblitesecuredjsp_vehicle</p>
+</li>
+<li>
+<p>ejbliteservlet_vehicle</p>
+</li>
+<li>
+<p>ejbliteservlet2_vehicle</p>
+</li>
+<li>
+<p>jaspicservlet_vehicle</p>
+</li>
+<li>
+<p>pmservlet_vehicle</p>
+</li>
+<li>
+<p>puservlet_vehicle</p>
+</li>
+<li>
+<p>wsservlet_vehicle</p>
+</li>
+<li>
+<p>servlet_vehicle</p>
+</li>
+<li>
+<p>jsp_vehicle</p>
+</li>
+<li>
+<p>web_vehicle</p>
+</li>
+<li>
+<p>appclient_vehicle</p>
+</li>
+<li>
+<p>wsappclient_vehicle</p>
+</li>
+<li>
+<p>ejb_vehicle</p>
+</li>
+<li>
+<p>wsejb_vehicle</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These vehicles are defined in the
+<code>&lt;TS_HOME&gt;/src/com/sun/ts/tests/common/vehicle</code> subdirectory structures.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref44">Example 7-14 Running Tests in the Jakarta Enterprise Beans (EJB) Vehicle Only</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant -Dkeywords="ejb_vehicle"  runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref45">Example 7-15 Running Tests in Vehicles Other Than the Jakarta Enterprise Beans Vehicle</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant -Dkeywords="!ejb_vehicle"  runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="sthref46"></a><a id="to-use-keywords-to-run-tests-in-forward-and-reverse-directions"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_7_5_2_6_to_use_keywords_to_run_tests_in_forward_and_reverse_directions">7.5.2.6 To Use Keywords to Run Tests in Forward and Reverse Directions</h5>
+<div class="paragraph">
+<p>The <code>forward</code> and <code>reverse</code> keywords can be used to filter the interop
+and/or rebuildable tests during a selected test run when running tests
+in one of the following directories only:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">&lt;TS_HOME&gt;/src/com/sun/ts/tests/jaxws
+&lt;TS_HOME&gt;/src/com/sun/ts/tests/jws
+&lt;TS_HOME&gt;/src/com/sun/ts/tests/interop</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Forward</code> tests are interop tests that run from the Vendor
+Implementation to the Compatible Implementation, as well as rebuildable
+tests that run only against the Vendor Implementation. Reverse tests
+(with test names ending in _reverse) are interop tests that run from the
+Compatible Implementation to the Vendor Implementation, as well as
+rebuildable tests that run only against the Compatible Implementation.</p>
+</div>
+<div class="paragraph">
+<p>To set one of these keywords when running in command-line mode, set the
+appropriate keyword using the keyword system property.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref47">Example 7-16 Running Tests in the Forward Direction</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant -Dkeywords=forward runclient</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="sthref48">Example 7-17 Running Tests in the Reverse Direction</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant -Dkeywords=reverse runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To set one of these keywords in the Javatest GUI, select the Configure
+menu item, then select Change Configuration, then select Keywords, and
+set the appropriate keyword.</p>
+</div>
+<div class="paragraph">
+<p>When one of these keywords has been set, executing tests in the
+directories above causes only those tests that match the keyword to be
+run. This can be useful when trying to debug failures with a particular
+test configuration. Note, however, for certification all tests in both
+directions must pass.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref49"></a><a id="running-interop-or-jwsjax-ws-reverse-tests"></a></p>
+</div>
+<div class="paragraph">
+<p>7.6 Running Interop or JWS Reverse Tests
+<sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub>~~</p>
+</div>
+<div class="paragraph">
+<p>If you are running Interop or JWS reverse tests, which run
+against the Jakarta EE 8 CI, you must start the standalone deployment
+server in a separate shell on the same host as the CTS harness. The
+default deployment porting implementation goes through a standalone
+deployment server with a dedicated classpath. To start the standalone
+deployment server, change to the <code>&lt;TS_HOME&gt;/bin</code> directory and execute
+the <code>start.auto.deployment.server</code> Ant task.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref50"></a><a id="rebuilding-test-directories"></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_7_rebuilding_test_directories">7.7 Rebuilding Test Directories</h3>
+<div class="paragraph">
+<p>The following directories require rebuilding, which is done by running
+the <code>configure.datasource.tests</code> Ant target:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>com/sun/ts/tests/ejb30/lite/packaging/war/datasource</code></p>
+</li>
+<li>
+<p><code>com/sun/ts/tests/ejb30/assembly/appres</code></p>
+</li>
+<li>
+<p><code>com/sun/ts/tests/ejb30/misc/datasource</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the <code>configure.datasource.tests</code> Ant target is run from any
+directory, it rebuilds these directories and any required
+subdirectories.</p>
+</div>
+<div class="paragraph">
+<p>The <code>com/sun/ts/tests/jms/ee20/resourcedefs</code> directory must also be
+rebuilt. Run the <code>build.special.webservices.clients</code> Ant target to
+rebuild the tests in this directory.</p>
+</div>
+<div class="paragraph">
+<p>The database properties in the CTS bundle are set to Derby database. If
+any other database is used, the <code>update.metadata.token.values</code> ant
+target needs to be executed for metadata-complete tests.</p>
+</div>
+<div class="paragraph">
+<p>The following directories require rebuilding:
+<code>src\com\sun\ts\tests\appclient\deploy\metadatacomplete\testapp.</code></p>
+</div>
+<div class="paragraph">
+<p>This can be done by running the <code>update.metadata.token.values</code> Ant
+target.</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFVK"></a><a id="test-reports"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_8_test_reports">7.8 Test Reports</h3>
+<div class="paragraph">
+<p>A set of report files is created for every test run. These report files
+can be found in the report directory you specify. After a test run is
+completed, the JavaTest harness writes HTML reports for the test run.
+You can view these files in the JavaTest ReportBrowser when running in
+GUI mode, or in the web browser of your choice outside the JavaTest
+interface.</p>
+</div>
+<div class="paragraph">
+<p>To see all of the HTML report files, enter the URL of the <code>report.html</code>
+file. This file is the root file that links to all of the other HTML
+reports.</p>
+</div>
+<div class="paragraph">
+<p>The JavaTest harness also creates a <code>summary.txt</code> file in the report
+directory that you can open in any text editor. The <code>summary.txt</code> file
+contains a list of all tests that were run, their test results, and
+their status messages.</p>
+</div>
+<div class="paragraph">
+<p>Although you can run the Ant report target from any test directory, its
+support is not guaranteed in the lower level directories. It is
+recommended that you always run the report target from <code>&lt;TS_HOME&gt;/bin</code>,
+from which reports are generated containing information about which
+tests were or were not run.</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFWD"></a><a id="creating-test-reports"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_7_8_1_creating_test_reports">7.8.1 Creating Test Reports</h4>
+<div class="paragraph">
+<p><a id="GBFVH"></a><a id="to-create-a-test-report-in-gui-mode"></a></p>
+</div>
+<div class="sect4">
+<h5 id="_7_8_1_1_to_create_a_test_report_in_gui_mode">7.8.1.1 To Create a Test Report in GUI Mode</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the JavaTest main menu, select <strong>Report</strong>, then select <strong>Create
+Report</strong>.<br>
+You are prompted to specify a directory to use for your test reports.</p>
+</li>
+<li>
+<p>Specify the directory you want to use for your reports, and then
+click <strong>OK</strong>.<br>
+Use the <strong>Filter</strong> list to specify whether you want to generate reports for
+the current configuration, all tests, or a custom set of tests.<br>
+You are asked whether you want to view report now.</p>
+</li>
+<li>
+<p>Click <strong>Yes</strong> to display the new report in the JavaTest ReportBrowser.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="GBFVC"></a><a id="to-create-a-test-report-in-command-line-mode"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_7_8_1_2_to_create_a_test_report_in_command_line_mode">7.8.1.2 To Create a Test Report in Command-Line Mode</h5>
+<div class="paragraph">
+<p>Specify where you want to create the test report.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>To specify the report directory from the command line at runtime,
+use:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant report -Dreport.dir="report_dir"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Reports are written for the last test run to the directory you specify.</p>
+</div>
+</li>
+<li>
+<p>To specify the default report directory, set the <code>report.dir</code>
+property in <code>&lt;TS_HOME&gt;/bin/ts.jte</code>.<br>
+For example, <code>report.dir="/home/josephine/reports"</code>.</p>
+</li>
+<li>
+<p>To disable reporting, set the <code>report.dir</code> property to <code>"none"</code>,
+either on the command line or in <code>ts.jte</code>.<br>
+For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant -Dreport.dir="none"</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="sthref51" class="paragraph">
+<p>Troubleshooting</p>
+</div>
+<div class="paragraph">
+<p>Although you can run the <code>report</code> Ant target from any test directory,
+its support is not guaranteed in the lower level directories. It is
+recommended that you always run the <code>report</code> target from
+<code>&lt;TS_HOME)/bin</code>, from which reports are generated containing information
+about which tests were or were not run.cc</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFVB"></a><a id="viewing-an-existing-test-report"></a></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_7_8_2_viewing_an_existing_test_report">7.8.2 Viewing an Existing Test Report</h4>
+<div class="paragraph">
+<p><a id="GBFVO"></a><a id="to-view-an-existing-report-in-the-javatest-report-browser"></a></p>
+</div>
+<div class="sect4">
+<h5 id="_7_8_2_1_to_view_an_existing_report_in_the_javatest_report_browser">7.8.2.1 To View an Existing Report in the JavaTest Report Browser</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the JavaTest main menu, select Report, then select Open Report.<br>
+You are prompted to specify the directory containing the report you want
+to open.</p>
+</li>
+<li>
+<p>Select the report directory you want to open, and then click Open.<br>
+The selected report set is opened in the JavaTest Report Browser.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="GBFWB"></a><a id="to-view-an-existing-report-in-a-web-browser"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_7_8_2_2_to_view_an_existing_report_in_a_web_browser">7.8.2.2 To View an Existing Report in a Web Browser</h5>
+<div class="paragraph">
+<p>Use the Web browser of your choice to view the <code>report.html</code> file in the
+report directory you specified from the command line or in <code>ts.jte</code>.</p>
+</div>
+<div class="paragraph">
+<p>The current report directory is displayed when you run the <code>report</code>
+target.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="webprofileconfig.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="debug.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

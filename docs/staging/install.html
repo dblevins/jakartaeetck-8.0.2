@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Installation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Installation</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="rules-wp.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="config.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GBFTP"></a><a id="installation"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_4_installation">4 Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter explains how to install the Jakarta EE 8 CTS software and
+perform a sample test run to verify your installation and familiarize
+yourself with the CTS. Installation instructions are provided for Eclipse
+GlassFish 5.1, a Compatible Implementation (CI) of Jakarta EE. If you are using
+another compatible implementation, refer to instructions provided with that
+implementation.</p>
+</div>
+<div class="paragraph">
+<p>After installing the software according to the instructions in this
+chapter, proceed to <a href="config.html#GBFVV">Chapter 5, "Setup and
+Configuration,"</a> for instructions on configuring your test environment.</p>
+</div>
+<div class="paragraph">
+<p>This chapter covers the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GEVGN">Installing the Jakarta EE 8 Compatible Implementation</a></p>
+</li>
+<li>
+<p><a href="#GEVHP">Installing the Jakarta EE 8 CTS</a></p>
+</li>
+<li>
+<p><a href="#GEVGZ">Verifying Your Installation (Optional)</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GEVGN"></a><a id="installing-the-jakarta-ee-8-compatible-implementation"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_4_1_installing_the_jakarta_ee_8_compatible_implementation">4.1 Installing the Jakarta EE 8 Compatible Implementation</h3>
+<div class="sect3">
+<h4 id="sthref14">Before You Begin</h4>
+<div class="paragraph">
+<p>If a Jakarta EE 8 Compatible Implementation (CI) is already installed, it
+is recommended that you shut it down and start with a new, clean CI
+installation.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install the Java SE 8 JDK bundle, if it is not already installed.<br>
+Refer to the JDK installation instructions for details. The JDK bundle
+can be downloaded from
+<code>http://www.oracle.com/technetwork/java/javase/downloads/index.html</code></p>
+</li>
+<li>
+<p>Create or change to the directory in which you will install the Jakarta
+EE 8 CI.</p>
+</li>
+<li>
+<p>Copy or download the Jakarta EE 8 CI, for example, Eclipse GlassFish 5.1.</p>
+</li>
+<li>
+<p>Unzip the Jakarta EE 8 CI bundle.</p>
+</li>
+<li>
+<p>For Eclipse GlassFish 5.1, set the following environment variables:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>JAVAEE_HOME</code> to the CI directory you just created</p>
+</li>
+<li>
+<p><code>JAVA_HOME</code> to the JDK you want to use</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Start the Jakarta EE 8 CI, Eclipse GlassFish 5.1, by executing the following command:<br></p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;JAVAEE_HOME&gt;/bin/asadmin start-domain</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="GEVHP"></a><a id="installing-the-jakarta-ee-8-cts"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_2_installing_the_jakarta_ee_8_cts">4.2 Installing the Jakarta EE 8 CTS</h3>
+<div class="paragraph">
+<p>Complete the following procedure to install the Jakarta EE 8 CTS on a
+system running the Solaris, Linux, or Windows operating system.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing in the Windows environment, the Jakarta EE 8 CI, Java SE 8
+JDK, and CTS should be installed on the same drive. If you must install
+these components on different drives, be sure to change the
+<code>ri.applicationRoot</code> and <code>s1as.applicationRoot</code> properties as needed in
+the <code>&lt;TS_HOME&gt;/bin/ts.jte</code> CTS configuration file. See
+<a href="config.html#GEXOS">Section 5.4.2, "Windows-Specific Properties,"</a> for
+more information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy or download the CTS 8 software.</p>
+</li>
+<li>
+<p>Change to the directory in which you want to install the Jakarta EE 8
+CTS software and use the <code>unzip</code> command to extract the bundle:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd install_directory
+unzip javaeetck-nnn.zip</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This creates the <code>javaeetck</code> directory. The
+install_directory`/javaeetck` directory will be <code>TS_HOME</code>.</p>
+</div>
+</li>
+<li>
+<p>Set the <code>TS_HOME</code> environment variable to point to the <code>javaeetck</code>
+directory.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After you complete the installation, follow the directions in
+<a href="config.html#GBFVV">Chapter 5, "Setup and Configuration,"</a> to set up
+and configure the Jakarta EE 8 CTS test suite.</p>
+</div>
+<div class="paragraph">
+<p><a id="GEVGZ"></a><a id="verifying-your-installation-optional"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_3_verifying_your_installation_optional">4.3 Verifying Your Installation (Optional)</h3>
+<div class="paragraph">
+<p>This procedure is optional. After installing the Jakarta EE 8 CI and Java
+EE 8 CTS, you may want to verify your installation by running the CTS
+samples against the Jakarta EE 8 CI. See <a href="config.html#GBFVV">Chapter 5,
+"Setup and Configuration,"</a> for complete configuration instructions.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For the Jakarta EE 8 CI, Eclipse GlassFish 5.1, set the following properties in your <code>&lt;TS_HOME&gt;/bin/ts.jte</code> file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">javaee.home=&lt;JAVAEE_HOME&gt;
+javaee.home.ri=&lt;JAVAEE_HOME&gt;
+mailHost=&lt;mail-server-host&gt; // the name of an accessible SMTP server
+mailuser1=firstname.lastname@xyz.com // a valid email address
+javamail.password=password // password for mailuser1
+orb.host=localhost // the name of the machine running the Jakarta EE 8 CI
+orb.host.ri=localhost // the name of the machine running the Jakarta EE 8 CI</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use these commands to run the Jakarta EE 8 CTS sample tests:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">cd &lt;TS_HOME&gt;/bin
+ant start.javadb.asadmin
+ant config.vi
+cd &lt;TS_HOME&gt;/src/com/sun/ts/tests/samples
+ant runclient</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="rules-wp.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="config.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

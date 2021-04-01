@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Setup and Configuration for Testing with the Jakarta EE 8 Web Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Setup and Configuration for Testing with the Jakarta EE 8 Web Profile</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="config.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="using.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GJRHB"></a><a id="setup-and-configuration-for-testing-with-the-jakarta-ee-8-web-profile"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_6_setup_and_configuration_for_testing_with_the_jakarta_ee_8_web_profile">6 Setup and Configuration for Testing with the Jakarta EE 8 Web Profile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter describes how to configure the Jakarta EE 8 CTS test suite to
+work with your Jakarta EE 8 Web Profile test environment. It is recommended
+that you first set up the testing environment using the Jakarta EE 8 Web
+Profile CI and then with your Jakarta EE 8 Web Profile server.</p>
+</div>
+<div class="paragraph">
+<p><a id="GLSEL"></a><a id="configuring-the-jakarta-ee-8-web-profile-test-environment"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_6_1_configuring_the_jakarta_ee_8_web_profile_test_environment">6.1 Configuring the Jakarta EE 8 Web Profile Test Environment</h3>
+<div class="paragraph">
+<p>The instructions in this section and in
+<a href="config.html#GEWWA">Configuring Your Application Server as the VI</a>
+step you through the configuration process for the Solaris, Microsoft
+Windows, and Linux platforms.</p>
+</div>
+<div class="paragraph">
+<p><a id="GJWED"></a><a id="to-run-tests-against-a-jakarta-ee-8-web-profile-implementation"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_6_1_1_to_run_tests_against_a_jakarta_ee_8_web_profile_implementation">6.1.1 To Run Tests Against a Jakarta EE 8 Web Profile Implementation</h4>
+<div class="paragraph">
+<p>The Jakarta EE 8 CTS is the Technology Compatibility Kit (TCK) for the Jakarta
+Platform, Enterprise Edition as well as the Jakarta EE 8 Web Profile.
+Implementations of the full Jakarta Platform, Enterprise Edition must pass
+all of the tests as defined by Jakarta EE 8 CTS Rules in
+<a href="rules.html#GBFSN">Chapter 2, "Procedure for Jakarta Platform, Enterprise
+Edition 8 Certification"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Implementations of the Jakarta EE 8 Web Profile must run the tests that
+verify requirements defined by the Jakarta EE 8 Web Profile Specification.
+These tests are defined by the Rules in <a href="rules-wp.html#GJJPZ">Chapter
+3, "Procedure for Jakarta Platform, Enterprise Edition 8 Web Profile
+Certification"</a>. These requirements are a subset of the tests contained
+in the Jakarta EE 8 CTS test suite. The test suite provides a mechanism
+whereby only those tests for the Jakarta EE 8 Web Profile will be run. The
+following steps explain how to use this mechanism.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set the <code>javaee.level</code> property to <code>web</code> in the
+<code>&lt;TS_HOME&gt;/bin/ts.jte</code> file.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">javaee.level= web</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This setting will only allow WAR files (that is, no EAR files) to be
+passed to the Deployment Porting Package. This is the minimal set of
+signature requirements that vendors must support for Web Profile.
+Specifying a javaee.level of "web" with nothing else implies there are
+NO additional technologies existing within the vendors implementation.
+Again, "web" only covers REQUIRED technologies for the Jakarta EE 8 Web
+Profile.</p>
+</div>
+</li>
+<li>
+<p>Set the <code>javaee_web_profile</code> keyword in one of the following ways:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In batch mode, change to a test directory and execute the following
+command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant -Dkeywords=javaee_web_profile runclient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Only tests that are required by the Jakarta EE 8 Web Profile will be run.<br></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you start a test run in a test directory that contains no Jakarta EE 8
+Web Profile tests, the test run will be aborted and the test harness
+will report that no tests were found.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the JavaTest GUI, open the test suite and perform the following
+steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select View, then select Filters, then select CurrentConfiguration.</p>
+</li>
+<li>
+<p>Select Configure, then select ChangeConfiguration, then select
+Keywords.</p>
+</li>
+<li>
+<p>In the Keywords dialog, select the Select Tests that Match check
+box, specify the <code>javaee_web_profile</code> keyword in the field, then click
+Done.<br>
+Only those tests that are valid in the Jakarta EE 8 Web Profile will be
+enabled in the test tree.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="config.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="using.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

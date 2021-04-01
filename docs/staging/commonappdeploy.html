@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Common Applications Deployment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Common Applications Deployment</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="portingpackage.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="csiv2logs.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GFAVR"></a><a id="a-common-applications-deployment"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_common_applications_deployment">A Common Applications Deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some tests in the test suite require the deployment of additional
+applications, components, or resource archives that are located in
+directories other than the test&#8217;s directory. When the test harness
+encounters a test that requires these additional applications,
+components, or resource archives, they are passed to the
+<code>TSDeploymentInterface2</code> implementation to be deployed. Because these
+applications can be shared by tests in different test directories, they
+are called common applications.</p>
+</div>
+<div class="paragraph">
+<p><a href="#GFAXX">Table A-1</a> lists the test directories and the directories
+that contain the common applications that are required by the test
+directories.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref52"></a><a id="GFAXX"></a></p>
+</div>
+<div class="sect4">
+<h5 id="_table_a_1_required_common_applications">Table A-1 Required Common Applications</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Directory Under <code>com/sun/ts/tests</code></th>
+<th class="tableblock halign-left valign-top">Directory Under <code>com/sun/ts/tests</code>
+With Associated Common Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/txbean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/entity/bmp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/txEbean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/entity/cmp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/txECMPbean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/entity/pm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/txEPMbean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector/ee/localTx/msginflow</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>common/connector/whitebox</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector/ee/mdb</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector/ee/localTx</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>common/connector/whitebox</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector/ee/noTx</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>common/connector/whitebox</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector/ee/xa</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>common/connector/whitebox</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector/ee/connManager</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>common/connector/whitebox</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xa/ee</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>compat13/connector/localTx</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>compat13/connector/whitebox</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>compat13/connector/noTx</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>compat13/connector/whitebox</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>compat13/connector/xa</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>compat13/connector/whitebox</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interop/tx/session</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interop/tx/txbean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interop/tx/entity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interop/tx/txEbean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interop/tx/webclient</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interop/tx/txbean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tests/interop/csiv2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interop/csiv2/rionly</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/pm/ejbql</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/pm/ejbql/schema</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBMS_Direct</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBMSBeans/BeanA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBMSBeans/BeanB</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBMSBeans/BeanC</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tests/ejb/ee/tx/session/stateful/bm/TxMDBMS_Indirect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBMSBeans/BeanA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBMSBeans/BeanB</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBMSBeans/BeanC</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBSS_Direct</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBSSBeans/BeanA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBSSBeans/BeanB</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tests/ejb/ee/tx/session/stateful/bm/TxMDBSSBeans/BeanC</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBSS_Indirect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBSSBeans/BeanA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBSSBeans/BeanB</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ejb/ee/tx/session/stateful/bm/TxMDBSSBeans/BeanC</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="portingpackage.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="csiv2logs.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

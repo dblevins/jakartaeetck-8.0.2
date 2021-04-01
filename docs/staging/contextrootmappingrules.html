@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Context Root Mapping Rules for Web Services Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Context Root Mapping Rules for Web Services Tests</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="ejbql-schema.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="jms-resource-adaptr.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GJJWH"></a><a id="f-context-root-mapping-rules-for-web-services-tests"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_f_context_root_mapping_rules_for_web_services_tests">F Context Root Mapping Rules for Web Services Tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The context root mapping rules that are described in this appendix apply
+to all of the web services test areas, including Jakarta XML RPC (<code>jaxrpc</code>), Jakarta XML Web Services (<code>jaxws</code>),
+Jakarta Web Services Metadata (<code>jws</code>), <code>webservices</code>, <code>webservices12</code>, and <code>webservices13</code>.</p>
+</div>
+<div class="paragraph">
+<p>This appendix covers the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GJJWR">Servlet-Based Web Service Endpoint Context Root Mapping</a></p>
+</li>
+<li>
+<p><a href="#GJJWG">Jakarta Enterprise Bean-Based Web Service Endpoint Context Root Mapping</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GJJWR"></a><a id="f.1-servlet-based-web-service-endpoint-context-root-mapping"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_f_1_servlet_based_web_service_endpoint_context_root_mapping">F.1 Servlet-Based Web Service Endpoint Context Root Mapping</h3>
+<div class="paragraph">
+<p>This section describes the context root mapping for servlet-based web
+services endpoints and clients. Since most of the application runtime
+and Web runtime deployment descriptor files have been removed in Jakarta EE
+8, the context root mapping for web archives in a Jakarta EE 8 CI becomes
+the base name of the Web archive file without the file extension. For
+example, the context root for the archive <code>web-client.war</code> defaults to
+<code>web-client</code>.</p>
+</div>
+<div class="paragraph">
+<p>This covers the mapping for all servlet-based web services endpoints and
+clients under the Jakarta EE 8 CTS test trees [Jakarta XML RPC (<code>jaxrpc</code>),
+Jakarta XML Web Services (<code>jaxws</code>),
+Jakarta Web Services Metadata (<code>jws</code>),
+webservices, webservices12, webservices13].</p>
+</div>
+<div class="paragraph">
+<p>For example, for the Jakarta XML Web Services (<code>jaxws</code>) test directory, the context root mapping is
+as shown in the following table.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref62"></a><a id="GLRDO"></a></p>
+</div>
+<div class="sect4">
+<h5 id="_table_f_1_context_root_mapping_for_jakarta_xml_web_services_code_jaxws_code_test_directory">Table F-1 Context Root Mapping for Jakarta XML Web Services (<code>jaxws</code>) Test Directory</h5>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoint</th>
+<th class="tableblock halign-left valign-top">Context Root Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSW2JDLHttpTest_web.war</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSW2JDLHttpTest_web</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSW2JDLHttpTest_wsservlet_vehicle_web.war</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSW2JDLHttpTest_wsservlet_vehicle_web</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The directory listing is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">% cd $TS_HOME/src/com/sun/ts/tests/jaxws/ee/w2j/document/literal/httptest
+% ant ld
+
+[echo] WSW2JDLHttpTest.ear
+[echo] WSW2JDLHttpTest_web.war
+[echo] WSW2JDLHttpTest_web.war.sun-web.xml
+[echo] WSW2JDLHttpTest_wsappclient_vehicle.ear
+[echo] WSW2JDLHttpTest_wsappclient_vehicle_client.jar
+[echo] WSW2JDLHttpTest_wsappclient_vehicle_client.jar.sun-application-client.xml
+[echo] WSW2JDLHttpTest_wsejb_vehicle.ear
+[echo] WSW2JDLHttpTest_wsejb_vehicle_client.jar
+[echo] WSW2JDLHttpTest_wsejb_vehicle_client.jar.sun-application-client.xml
+[echo] WSW2JDLHttpTest_wsejb_vehicle_ejb.jar
+[echo] WSW2JDLHttpTest_wsejb_vehicle_ejb.jar.sun-ejb-jar.xml
+[echo] WSW2JDLHttpTest_wsservlet_vehicle.ear
+[echo] WSW2JDLHttpTest_wsservlet_vehicle_web.war
+[echo] WSW2JDLHttpTest_wsservlet_vehicle_web.war.sun-web.xml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Similarly, for the Jakarta XML RPC (<code>jaxrpc</code>) test directory, the context root mapping is
+as shown in the following table.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref63"></a><a id="GLRDI"></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_table_f_2_context_root_mapping_for_jakarta_xml_rpc_code_jaxrpc_code_test_directory">Table F-2 Context Root Mapping for Jakarta XML RPC (<code>jaxrpc</code>) Test Directory</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endpoint</th>
+<th class="tableblock halign-left valign-top">Context Root Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>W2JREMarshallTest_web.war</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>W2JREMarshallTest_web</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>W2JREMarshallTest_jsp_vehicle_web.war</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>W2JREMarshallTest_jsp_vehicle_web</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>W2JREMarshallTest_servlet_vehicle_web.war</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>W2JREMarshallTest_servlet_vehicle_web</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The directory listing is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">% cd $TS_HOME/src/com/sun/ts/tests/jaxrpc/ee/w2j/rpc/encoded/marshalltest
+% ant ld
+
+[echo] W2JREMarshallTest.ear
+[echo] W2JREMarshallTest_appclient_vehicle.ear
+[echo] W2JREMarshallTest_appclient_vehicle_client.jar
+[echo] W2JREMarshallTest_appclient_vehicle_client.jar.sun-application-client.xml
+[echo] W2JREMarshallTest_ejb_vehicle.ear
+[echo] W2JREMarshallTest_ejb_vehicle_client.jar
+[echo] W2JREMarshallTest_ejb_vehicle_client.jar.sun-application-client.xml
+[echo] W2JREMarshallTest_ejb_vehicle_ejb.jar
+[echo] W2JREMarshallTest_ejb_vehicle_ejb.jar.sun-ejb-jar.xml
+[echo] W2JREMarshallTest_jsp_vehicle.ear
+[echo] W2JREMarshallTest_jsp_vehicle_web.war
+[echo] W2JREMarshallTest_jsp_vehicle_web.war.sun-web.xml
+[echo] W2JREMarshallTest_servlet_vehicle.ear
+[echo] W2JREMarshallTest_servlet_vehicle_web.war
+[echo] W2JREMarshallTest_servlet_vehicle_web.war.sun-web.xml
+[echo] W2JREMarshallTest_web.war
+[echo] W2JREMarshallTest_web.war.sun-web.xml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For Web archives, the context root mapping becomes the base name of the
+Web archive file minus the extension.</p>
+</div>
+<div class="paragraph">
+<p><a id="GJJWG"></a><a id="f.2-jakarta-enterprise-bean-based-web-service-endpoint-context-root-mapping"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_f_2_jakarta_enterprise_bean_based_web_service_endpoint_context_root_mapping">F.2 Jakarta Enterprise Bean-Based Web Service Endpoint Context Root Mapping</h3>
+<div class="paragraph">
+<p>This section describes the context root mapping for Jakarta Enterprise Bean-based web
+services endpoints and clients. The context root mapping for Jakarta Enterprise Bean-based
+web services and clients is based on the following mapping rules that
+are used for the Jakarta EE 8 CI.</p>
+</div>
+<div class="paragraph">
+<p>The following algorithm describes the context root mapping rules that
+are used by the Jakarta EE 8 Compatible Implementation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">if sun-ejb-jar.xml deployment descriptor exists
+    if &lt;endpoint-address-uri&gt; tag exists
+        context root = value of &lt;endpoint-address-uri&gt;
+    else
+        if WebService.name annotation is specified on implementation bean
+            context root = WSDL Service Name + / + WebService.name
+        else
+            context root = WSDL Service Name + / + Simple Bean Class Name
+        endif
+    endif
+else
+    if WebService.name annotation is specified on implementation bean
+        context root = WSDL Service Name + / + WebService.name
+    else
+        context root = WSDL Service Name + / + Simple Bean Class Name
+    endif
+endif</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, the following table shows the context root mappings for the
+<code>webservices12/ejb/annotations</code> directory.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref64"></a><a id="GLRDN"></a></p>
+</div>
+<div class="paragraph">
+<p>Table F-3 Context Root Mappings</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Test Directory</th>
+<th class="tableblock halign-left valign-top">Context Root (&lt;endpoint-address-uri&gt;)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbMultipleClientInjectionTest1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbMultipleClientInjectionTest1/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbMultipleClientInjectionTest2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbMultipleClientInjectionTest2/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbNoWebServiceRefInClientTest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbNoWebServiceRefInClientTest/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbPortFieldInjectionTest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbPortFieldInjectionTest/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbPortMethodInjectionTest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbPortMethodInjectionTest/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbSOAPHandlersTest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbSOAPHandlersTest/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbSOAPHandlersTest2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbSOAPHandlersTest2/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbWebServiceProviderTest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbWebServiceProviderTest/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbWebServiceRefTest2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbWebServiceRefTest2/ejb"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbAsyncTest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbAsyncTest/ejb"</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">--------------                      -------------------------------------
+Test Directory                      Context Root = &lt;endpoint-address-uri&gt;
+--------------                      -------------------------------------
+WSEjbMultipleClientInjectionTest1   "WSEjbMultipleClientInjectionTest1/ejb"
+WSEjbMultipleClientInjectionTest2   "WSEjbMultipleClientInjectionTest2/ejb"
+WSEjbNoWebServiceRefInClientTest    "WSEjbNoWebServiceRefInClientTest/ejb"
+WSEjbNoWebServiceRefInClientTest    "WSEjbNoWebServiceRefInClientTest/ejb"
+WSEjbPortFieldInjectionTest         "WSEjbPortFieldInjectionTest/ejb"
+WSEjbPortMethodInjectionTest        "WSEjbPortMethodInjectionTest/ejb"
+WSEjbSOAPHandlersTest               "WSEjbSOAPHandlersTest/ejb"
+WSEjbSOAPHandlersTest2              "WSEjbSOAPHandlersTest2"/ejb"
+WSEjbWebServiceProviderTest         "WSEjbWebServiceProviderTest/ejb"
+WSEjbWebServiceRefTest2             "WSEjbWebServiceRefTest2/ejb"
+WSEjbAsyncTest                      "WSEjbAsyncTest/ejb"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following table shows the two test directories under the
+<code>webservices12/ejb/annotations</code> that do not specify the
+<code>&lt;endpoint-address-uri&gt;</code> deployment tag or do not contain a Jakarta Enterprise Bean JAR
+runtime deployment descriptor file. Because of this, the context root is
+calculated using the previously described formula. In both cases, the
+context root is calculated as a concatenation of the WSDL Service Name,
+a slash (<code>/</code>), and the Simple Bean Class Name.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref65"></a><a id="GLRCY"></a></p>
+</div>
+<div class="sect4">
+<h5 id="_table_f_4_context_root_mapping_for_directories_without_endpoint_address_uris">Table F-4 Context Root Mapping for Directories Without Endpoint Address URIs</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 28.9999%;">
+<col style="width: 71.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Test Directory</th>
+<th class="tableblock halign-left valign-top">Context Root (WSDL Service Name/Simple Bean Class Name)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbWebServiceRefTest1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbWebServiceRefTest1HelloService/HelloBean"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WSEjbWebServiceRefWithNoDDsTest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"WSEjbWSRefWithNoDDsTestHelloEJBService/WSEjbWSRefWithNoDDsTestHelloEJB"</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">--------------                  --------------------------------------------------------
+Test Directory                  Context Root = &lt;WSDL Service Name/Simple Bean Class Name&gt;
+--------------                  --------------------------------------------------------
+WSEjbWebServiceRefTest1         "WSEjbWebServiceRefTest1HelloService/HelloBean"
+WSEjbWebServiceRefWithNoDDsTest "WSEjbWSRefWithNoDDsTestHelloEJBService/\
+                                 WSEjbWSRefWithNoDDsTestHelloEJB"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The context root mappings for some, but not all, tests also exist in the
+DAT files under the <code>$TS_HOME/bin</code> directory. These include the
+<code>jaxrpc-url-props.dat</code> (Jakarta XML RPC), <code>jaxws-url-props.dat</code> (Jakarta XML Web Services), <code>jws-url-props.dat</code> (Jakarta Web Services Metadata), and
+<code>webservices12-url-props.dat</code> files.</p>
+</div>
+<div class="paragraph">
+<p>Implementers can use the previously described information in their porting
+implementation layer for web services.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="ejbql-schema.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="jms-resource-adaptr.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Debugging Test Problems</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Debugging Test Problems</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="using.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="troubleshooting.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GBFUV"></a><a id="debugging-test-problems"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_8_debugging_test_problems">8 Debugging Test Problems</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are a number of reasons that tests can fail to execute properly.
+This chapter provides some approaches for dealing with these failures.
+Note that most of these suggestions are only relevant when running the
+test harness in GUI mode. This is a dummy change and will be reverted.</p>
+</div>
+<div class="paragraph">
+<p>This chapter includes the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GBFYP">Overview</a></p>
+</li>
+<li>
+<p><a href="#GBFVF">Test Tree</a></p>
+</li>
+<li>
+<p><a href="#GBFWI">Folder Information</a></p>
+</li>
+<li>
+<p><a href="#GBFVP">Test Information</a></p>
+</li>
+<li>
+<p><a href="#GBFVZ">Report Files</a></p>
+</li>
+<li>
+<p><a href="#GBFYF">Configuration Failures</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GBFYP"></a><a id="overview"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_8_1_overview">8.1 Overview</h3>
+<div class="paragraph">
+<p>The goal of a test run is for all tests in the test suite that are not
+filtered out to have passing results. If the root test suite folder
+contains tests with errors or failing results, you must troubleshoot and
+correct the cause to satisfactorily complete the test run.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Errors: Tests with errors could not be executed by the JavaTest
+harness. These errors usually occur because the test environment is not
+properly configured.</p>
+</li>
+<li>
+<p>Failures: Tests that fail were executed but had failing results.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Test Manager GUI provides you with a number of tools for effectively
+troubleshooting a test run. See the JavaTest User&#8217;s Guide and JavaTest
+online help for detailed descriptions of the tools described in this
+chapter.</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFVF"></a><a id="test-tree"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_8_2_test_tree">8.2 Test Tree</h3>
+<div class="paragraph">
+<p>Use the test tree in the JavaTest GUI to identify specific folders and
+tests that had errors or failing results. Color codes are used to
+indicate status as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Green: Passed</p>
+</li>
+<li>
+<p>Blue: Test Error</p>
+</li>
+<li>
+<p>Red: Failed to pass test</p>
+</li>
+<li>
+<p>White: Test not run</p>
+</li>
+<li>
+<p>Gray: Test filtered out (not run)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GBFWI"></a><a id="folder-information"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_8_3_folder_information">8.3 Folder Information</h3>
+<div class="paragraph">
+<p>Click a folder in the test tree in the JavaTest GUI to display its tabs.</p>
+</div>
+<div class="paragraph">
+<p>Choose the Error and the Failed tabs to view the lists of all tests in
+and under a folder that were not successfully run. You can double-click
+a test in the lists to view its test information.</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFVP"></a><a id="test-information"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_8_4_test_information">8.4 Test Information</h3>
+<div class="paragraph">
+<p>To display information about a test in the JavaTest GUI, click its icon
+in the test tree or double-click its name in a folder status tab. The
+tab contains detailed information about the test run and, at the bottom
+of the window, a brief status message identifying the type of failure or
+error. This message may be sufficient for you to identify the cause of
+the error or failure.</p>
+</div>
+<div class="paragraph">
+<p>If you need more information to identify the cause of the error or
+failure, use the following tabs listed in order of importance:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Test Run Messages contains a Message list and a Message section that
+display the messages produced during the test run.</p>
+</li>
+<li>
+<p>Test Run Details contains a two-column table of name/value pairs
+recorded when the test was run.</p>
+</li>
+<li>
+<p>Configuration contains a two-column table of the test environment
+name/value pairs derived from the configuration data actually used to
+run the test.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can set <code>harness.log.traceflag=true</code> in <code>&lt;TS_HOME&gt;/bin/ts.jte</code> to
+get more debugging information. In a terminal window, you can also set
+an environment variable <code>HARNESS_DEBUG=true</code> to display more debugging
+information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a id="GBFVZ"></a><a id="report-files"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_8_5_report_files">8.5 Report Files</h3>
+<div class="paragraph">
+<p>Report files are another good source of troubleshooting information. You
+may view the individual test results of a batch run in the JavaTest
+Summary window, but there are also a wide range of HTML report files
+that you can view in the JavaTest ReportBrowser or in the external
+browser or your choice following a test run. See
+<a href="using.html#GBFVK">Test Reports</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p><a id="GBFYF"></a><a id="configuration-failures"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_8_6_configuration_failures">8.6 Configuration Failures</h3>
+<div class="paragraph">
+<p>Configuration failures are easily recognized because many tests fail the
+same way. When all your tests begin to fail, you may want to stop the
+run immediately and start viewing individual test output. However, in
+the case of full-scale launching problems where no tests are actually
+processed, report files are usually not created (though sometimes a
+small <code>harness.trace</code> file in the report directory is written).</p>
+</div>
+<div class="paragraph">
+<p>When aborting a test run, consider the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you abort a test run when running the JavaTest harness in GUI mode,
+the GUI tools automatically cleans up your environment for the next test
+run. This cleanup includes undeploying any components or applications
+that may deployed or registered with the Application Server.</p>
+</li>
+<li>
+<p>If you abort a test run in command-line mode (by pressing Ctrl+C),
+your environment might not be left in a clean state, causing potential
+failures in subsequent test runs. In such cases, you may need to perform
+the following procedure to restore your environment to a clean state.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To restore your environment after aborting a test run in command-line
+mode, perform these steps.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to the Eclipse GlassFish 5.1 Application Server with the <code>asadmin</code> command.</p>
+</li>
+<li>
+<p>List all registered components with the <code>asadmin list-components</code>
+command.</p>
+</li>
+<li>
+<p>Undeploy any listed components related to your test run with the
+<code>asadmin undeploy</code> listed_component command.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="using.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="troubleshooting.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

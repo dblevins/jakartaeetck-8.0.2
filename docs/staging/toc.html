@@ -1,0 +1,884 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Jakarta EE Platform, Enterprise Edition 8 Compatibility Test Suite User&apos;s Guide, Release 8 for Jakarta EE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Jakarta EE Platform, Enterprise Edition 8 Compatibility Test Suite User's Guide, Release 8 for Jakarta EE</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+
+		<td align="left">
+		<a href="title.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div class="sect1">
+<h2 id="contents">Contents</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="title.html#">Eclipse Foundation™</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="__a_href_tckpreface_html_gbfti_preface_a"><a href="TCKpreface.html#GBFTI">Preface</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="TCKpreface.html#GBFUS">Who Should Use This Book</a></p>
+</li>
+<li>
+<p><a href="TCKpreface.html#GJFXS">Before You Read This Book</a></p>
+</li>
+<li>
+<p><a href="TCKpreface.html#GBFWF">Typographic Conventions</a></p>
+</li>
+<li>
+<p><a href="TCKpreface.html#FWBSD">Shell Prompts in Command Examples</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__a_href_intro_html_gbfow_1_introduction_a"><a href="intro.html#GBFOW">1 Introduction</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="intro.html#GBFTK">1.1 Compatibility Testing</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="intro.html#GBFQN">1.1.1 Why Compatibility Testing is Important</a></p>
+</li>
+<li>
+<p><a href="intro.html#GBFPR">1.1.2 Compatibility Rules</a></p>
+</li>
+<li>
+<p><a href="intro.html#GBFPW">1.1.3 CTS Overview</a></p>
+</li>
+<li>
+<p><a href="intro.html#GBFPB">1.1.4 Jakarta Specification Community Process Program and Compatibility Testing</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="intro.html#GEUYK">1.2 About Jakarta EE 8 CTS</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="intro.html#sthref4">1.2.1 Jakarta EE 8 Technologies Tested with Jakarta EE 8 CTS</a></p>
+</li>
+<li>
+<p><a href="intro.html#BHCGFHDI">1.2.2 Jakarta EE 8 Web Profile Technologies Tested With Jakarta EE 8 CTS</a></p>
+</li>
+<li>
+<p><a href="intro.html#GEUZS">1.2.3 CTS Tests</a></p>
+</li>
+<li>
+<p><a href="intro.html#GEUYR">1.2.4 JavaTest Harness</a></p>
+</li>
+<li>
+<p><a href="intro.html#GEUYQ">1.2.5 Exclude Lists</a></p>
+</li>
+<li>
+<p><a href="intro.html#GEUZN">1.2.6 Apache Ant</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="intro.html#GEVAD">1.3 Hardware Requirements</a></p>
+</li>
+<li>
+<p><a href="intro.html#GEVBB">1.4 Software Requirements</a></p>
+</li>
+<li>
+<p><a href="intro.html#GEVCL">1.5 Additional Jakarta EE 8 CTS Requirements</a></p>
+</li>
+<li>
+<p><a href="intro.html#GBFQW">1.6 Getting Started With the Jakarta EE 8 CTS Test Suite</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="procedure-for-jakarta-platform-enterprise-edition-8-certification"><a href="rules.html#GBFSN">2 Procedure for Jakarta Platform, Enterprise Edition 8 Certification</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="rules.html#CJACEHEF">2.1 Certification Overview</a></p>
+</li>
+<li>
+<p><a href="rules.html#CJAJFCJI">2.2 Compatibility Requirements</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="rules.html#definitions">2.2.1 Definitions</a></p>
+</li>
+<li>
+<p><a href="rules.html#CJAFEGEH">2.2.2 Rules for Jakarta Platform, Enterprise Edition Version 8 Products</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="rules.html#CJACBJIB">2.3 Jakarta Platform, Enterprise Edition Version 8 Test Appeals Process</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="rules.html#">2.3.1 Valid Challenges</a></p>
+</li>
+<li>
+<p><a href="rules.html#">2.3.2 Invalid Challenges</a></p>
+</li>
+<li>
+<p><a href="rules.html#CJAJEAEI">2.3.3 TCK Test Appeals Steps</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="rules.html#CJAHFAJE">2.4 Specifications for Jakarta Platform, Enterprise Edition Version 8</a></p>
+</li>
+<li>
+<p><a href="rules.html#CJAHIGAB">2.5 Libraries for Jakarta Platform, Enterprise Edition Version 8</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="procedure-for-jakarta-platform-enterprise-edition-8-web-profile-certification"><a href="rules-wp.html#GJJPZ">3 Procedure for Jakarta Platform, Enterprise Edition 8 Web Profile Certification</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="rules-wp.html#CEGEJDGE">3.1 Certification Overview</a></p>
+</li>
+<li>
+<p><a href="rules-wp.html#CEGFGHIC">3.2 Compatibility Requirements</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="rules-wp.html#definitions">3.2.1 Definitions</a></p>
+</li>
+<li>
+<p><a href="rules-wp.html#CEGCFBHB">3.2.2 Rules for Jakarta Platform, Enterprise Edition Version 8 Products</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="rules-wp.html#CEGHFFED">3.3 Jakarta Platform, Enterprise Edition Version 8 Test Appeals Process</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="rules-wp.html#">3.3.1 Valid Challenges</a></p>
+</li>
+<li>
+<p><a href="rules-wp.html#">3.3.2 Invalid Challenges</a></p>
+</li>
+<li>
+<p><a href="rules-wp.html#CJAJEAEI">3.3.3 TCK Test Appeals Steps</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="rules-wp.html#CEGEHIBD">3.4 Specifications for Jakarta Platform, Enterprise Edition Version 8, Web Profile</a></p>
+</li>
+<li>
+<p><a href="rules-wp.html#CEGFDIEG">3.5 Libraries for Jakarta Platform, Enterprise Edition Version 8, Web Profile</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__a_href_install_html_gbftp_4_installation_a"><a href="install.html#GBFTP">4 Installation</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="install.html#GEVGN">4.1 Installing the Jakarta EE 8 Compatible Implementation</a></p>
+</li>
+<li>
+<p><a href="install.html#GEVHP">4.2 Installing the Jakarta EE 8 CTS</a></p>
+</li>
+<li>
+<p><a href="install.html#GEVGZ">4.3 Verifying Your Installation (Optional)</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setup-and-configuration"><a href="config.html#GBFVV">5 Setup and Configuration</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="config.html#GEWTL">5.1 Allowed Modifications</a></p>
+</li>
+<li>
+<p><a href="config.html#GEWTP">5.2 Configuring the Test Environment</a></p>
+</li>
+<li>
+<p><a href="config.html#GEWTQ">5.3 Configuring a Jakarta EE 8 Server</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="config.html#GEWSQ">5.3.1 Jakarta Platform, Enterprise Edition Server Configuration Scenarios</a></p>
+</li>
+<li>
+<p><a href="config.html#GEWUI">5.3.2 Configuring the Jakarta EE 8 CI as the VI</a></p>
+</li>
+<li>
+<p><a href="config.html#GEWWA">5.3.3 Configuring Your Application Server as the VI</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXMH">5.3.4 Configuring a Jakarta Platform, Enterprise Edition CI and VI for Interop/Rebuildable Tests</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="config.html#GEXPP">5.4 Modifying Environment Settings for Specific Technology Tests</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="config.html#GEXQT">5.4.1 Test Harness Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXOS">5.4.2 Windows-Specific Properties</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXPE">5.4.3 Test Execution Command Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXPB">5.4.4 Jakarta Servlet Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#CBDDGJFC">5.4.5 Jakarta WebSocket Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXON">5.4.6 JDBC Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXQQ">5.4.7 Standalone RMI/IIOP Server Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXOT">5.4.8 Jakarta Mail Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GJKPO">5.4.9 Jakarta RESTful Web Services Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXOF">5.4.10 Jakarta Connector Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXPV">5.4.11 XA Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GKKOJ">5.4.12 Jakarta Enterprise Beans 3.2 Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXOX">5.4.13 Jakarta Enterprise Beans Timer Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXQB">5.4.14 Entity Bean Container-Managed Persistence Test Setup for Jakarta Enterprise Beans V 1.1</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXOL">5.4.15 Jakarta Persistence API Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXPT">5.4.16 Jakarta Messaging Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXQR">5.4.17 Transaction Interoperability Testing</a></p>
+</li>
+<li>
+<p><a href="config.html#GKWVB">5.4.18 Jakarta Authentication Service Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXWW">5.4.19 CSIv2 Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEYBI">5.4.20 Jakarta Authorization Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#sthref24">5.4.21 Jakarta Batch Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEYAM">5.4.22 WSDL: Webservice Test and Runtime Notes</a></p>
+</li>
+<li>
+<p><a href="config.html#CEGCHDEA">5.4.23 Jakarta Security API Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEYNX">5.4.24 Signature Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GJLGQ">5.4.25 Backend Database Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXQP">5.4.26 Deployment Test Setup</a></p>
+</li>
+<li>
+<p><a href="config.html#GEXPU">5.4.27 Jakarta XML Registries Test Setup</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="config.html#GEYPB">5.5 Using the JavaTest Harness Configuration GUI</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="config.html#GEYNM">5.5.1 Basic Configuration Overview</a></p>
+</li>
+<li>
+<p><a href="config.html#GEYOD">5.5.2 The Configuration Interview</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setup-and-configuration-for-testing-with-the-jakarta-ee-8-web-profile"><a href="webprofileconfig.html#GJRHB">6 Setup and Configuration for Testing with the Jakarta EE 8 Web Profile</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="webprofileconfig.html#GLSEL">6.1 Configuring the Jakarta EE 8 Web Profile Test Environment</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="webprofileconfig.html#GJWED">6.1.1 To Run Tests Against a Jakarta EE 8 Web Profile Implementation</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="executing-tests"><a href="using.html#GBFWO">7 Executing Tests</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="using.html#GFADX">7.1 Jakarta EE 8 CTS Operating Assumptions</a></p>
+</li>
+<li>
+<p><a href="using.html#GBFUZ">7.2 Starting JavaTest</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="using.html#GBFWH">7.2.1 To Start JavaTest in GUI Mode</a></p>
+</li>
+<li>
+<p><a href="using.html#GFAEF">7.2.2 To Start JavaTest in Command-Line Mode</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="using.html#GFACS">7.3 Validating Your Test Configuration</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="using.html#GFADI">7.3.1 To Validate Your Configuration in GUI Mode</a></p>
+</li>
+<li>
+<p><a href="using.html#GFACO">7.3.2 To Validate Your Configuration in Command-Line Mode</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="using.html#GBFWM">7.4 Running a Subset of the Tests</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="using.html#GBFVT">7.4.1 To Run a Subset of Tests in GUI Mode</a></p>
+</li>
+<li>
+<p><a href="using.html#GBFWK">7.4.2 To Run a Subset of Tests in Command-Line Mode</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="using.html#sthref25">7.5 Using Keywords to Test Required and Optional Technologies</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="using.html#BCGBAHFF">7.5.1 Setting the javaee.level Property</a></p>
+</li>
+<li>
+<p><a href="using.html#BCGHGJIC">7.5.2 Using Keywords to Create Groups and Subsets of Tests</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="using.html#sthref50">7.7 Rebuilding Test Directories</a></p>
+</li>
+<li>
+<p><a href="using.html#GBFVK">7.8 Test Reports</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="using.html#GBFWD">7.8.1 Creating Test Reports</a></p>
+</li>
+<li>
+<p><a href="using.html#GBFVB">7.8.2 Viewing an Existing Test Report</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="debugging-test-problems"><a href="debug.html#GBFUV">8 Debugging Test Problems</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="debug.html#GBFYP">8.1 Overview</a></p>
+</li>
+<li>
+<p><a href="debug.html#GBFVF">8.2 Test Tree</a></p>
+</li>
+<li>
+<p><a href="debug.html#GBFWI">8.3 Folder Information</a></p>
+</li>
+<li>
+<p><a href="debug.html#GBFVP">8.4 Test Information</a></p>
+</li>
+<li>
+<p><a href="debug.html#GBFVZ">8.5 Report Files</a></p>
+</li>
+<li>
+<p><a href="debug.html#GBFYF">8.6 Configuration Failures</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__a_href_troubleshooting_html_gfahf_9_troubleshooting_a"><a href="troubleshooting.html#GFAHF">9 Troubleshooting</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="troubleshooting.html#GFAUR">9.1 Common CTS Problems and Resolutions</a></p>
+</li>
+<li>
+<p><a href="troubleshooting.html#GFAGN">9.2 Support</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="building-and-debugging-tests"><a href="building.html#GFAON">10 Building and Debugging Tests</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="building.html#GFATJ">10.1 Configuring Your Build Environment</a></p>
+</li>
+<li>
+<p><a href="building.html#GFAPW">10.2 Building the Tests</a></p>
+</li>
+<li>
+<p><a href="building.html#GFARS">10.3 Running the Tests</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="building.html#GFAOW">10.3.1 To Run a Single Test Directory</a></p>
+</li>
+<li>
+<p><a href="building.html#GFARF">10.3.2 To Run a Single Test Within a Test Directory</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="building.html#GFATN">10.4 Listing the Contents of dist/classes Directories</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="building.html#">&lt;TS_HOME&gt;/classes/com/sun/ts/tests/samples/ejb/ee/simpleHello</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="building.html#GFATK">10.5 Debugging Service Tests</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="building.html#GFASE">10.5.1 Examples</a></p>
+</li>
+<li>
+<p><a href="building.html#GFARW">10.5.2 Obtaining Additional Debugging Information</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="implementing-the-porting-package"><a href="portingpackage.html#GFATG">11 Implementing the Porting Package</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="portingpackage.html#GFASD">11.1 Overview</a></p>
+</li>
+<li>
+<p><a href="portingpackage.html#GFAUG">11.2 Porting Package APIs</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="portingpackage.html#GFASM">11.2.1 TSDeploymentInterface2</a></p>
+</li>
+<li>
+<p><a href="portingpackage.html#GKLJO">11.2.2 Ant-Based Deployment Interface</a></p>
+</li>
+<li>
+<p><a href="portingpackage.html#GFASI">11.2.3 TSJMSAdminInterface</a></p>
+</li>
+<li>
+<p><a href="portingpackage.html#GFATH">11.2.4 TSLoginContextInterface</a></p>
+</li>
+<li>
+<p><a href="portingpackage.html#GFATO">11.2.5 TSURLInterface</a></p>
+</li>
+<li>
+<p><a href="portingpackage.html#GFASJ">11.2.6 TSHttpsURLConnectionInterface</a></p>
+</li>
+<li>
+<p><a href="portingpackage.html#GFAUI">11.2.7 TSJAXRPCInterface</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="commonappdeploy.html#GFAVR">A Common Applications Deployment</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFAVU">B CSIv2 Test Reference</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFAVI">B.1 Overview</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="csiv2logs.html#GFAUX">B.1.1 Application Client-to-Jakarta Enterprise Beans Scenarios</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFAZD">B.1.2 Jakarta Enterprise Beans-to-Jakarta Enterprise Beans Test Scenarios</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKEF">B.1.3 Web Client-to-Jakarta Enterprise Beans Scenarios</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="csiv2logs.html#BACGHCAI">B.2 CSIv2 Logging Servlet</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKFB">B.3 Naming Conventions for CSIv2 Test Directories</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKGM">B.4 CSIv2 Test Directory Structure</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKGF">B.5 Naming Conventions for CSIv2 Test Names</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GLSDH">B.6 Security Elements Associated With CSIv2 Tests</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="csiv2logs.html#GEXUI">B.6.1 The security-role-mapping Element</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GEXUQ">B.6.2 The ior-security-config Element</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="csiv2logs.html#GJJVO">B.7 Debugging CSIv2 Test Failures</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="csiv2logs.html#GJJWV">B.7.1 Debugging CTS Clients, Beans, and Servlets</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GJJVS">B.7.2 Debugging CTS CSIv2 Interceptors</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#sthref56">B.7.3 Debugging Logging Servlet Problems</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKFC">B.8 Examining Test Logs</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="csiv2logs.html#GFKGL">B.8.1 To Examine the Test Logs</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="csiv2logs.html#GFKHL">   Validating the following IOR against IOR.4:</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKGA">   Validating the following IOR against IOR.3:</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#">   Validating the following invocation:</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="csiv2logs.html#GLREW">B.8.2 Bit Mask Values for CSIv2 IOR Structures</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKHS">B.9 CSIv2 Log Elements</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="csiv2logs.html#GFKGW">B.9.1 Key Elements in the CSIv2 Log</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKHC">B.9.2 Key Elements in the Server Interceptor Log</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKHA">B.9.3 Key Elements in the Client Interceptor Log</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKGT">B.9.4 Key Elements in an IOR Log</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKHQ">B.9.5 Comprehensive List of All CSIv2 Log Elements</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKKB">B.10 IORs and Associated CSIv2 Tests</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="csiv2logs.html#GFKKN">B.10.1 IOR.0</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKLB">B.10.2 IOR.1</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKKR">B.10.3 IOR.3</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKLX">B.10.4 IOR.4</a></p>
+</li>
+<li>
+<p><a href="csiv2logs.html#GFKKJ">B.10.5 IOR.7</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="jaspic-files.html#GLAEQ">C Jakarta Authentication Technology Notes and Files</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="jaspic-files.html#GLAFO">C.1 Jakarta Authentication 1.1 Technology Overview</a></p>
+</li>
+<li>
+<p><a href="jaspic-files.html#GLAFE">C.2 Jakarta Authentication TSSV Files</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="jaspic-files.html#GLAGR">C.2.1 tssv.jar file</a></p>
+</li>
+<li>
+<p><a href="jaspic-files.html#GLADE">C.2.2 ProviderConfiguration.xml file</a></p>
+</li>
+<li>
+<p><a href="jaspic-files.html#GLAFZ">C.2.3 provider-configuration.dtd file</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="database-config.html#GFAVUb">D Configuring Your Backend Database</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="database-config.html#GFKNA">D.1 Overview</a></p>
+</li>
+<li>
+<p><a href="database-config.html#GFKNR">D.2 The init.&lt;database&gt; Ant Target</a></p>
+</li>
+<li>
+<p><a href="database-config.html#GFKMW">D.3 Database Properties in ts.jte</a></p>
+</li>
+<li>
+<p><a href="database-config.html#GFKOC">D.4 Database DDL and DML Files</a></p>
+</li>
+<li>
+<p><a href="database-config.html#GFKND">D.5 CMP Table Creation</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="ejbql-schema.html#GFAVUc">E EJBQL Schema</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="ejbql-schema.html#GFKSI">E.1 Persistence Schema Relationships</a></p>
+</li>
+<li>
+<p><a href="ejbql-schema.html#GFKQT">E.2 SQL Statements for CMP 1.1 Finders</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="ejbql-schema.html#GFKSD">E.2.1 ejb/ee/bb/entity/cmp/clientviewtest, interop/ejb/entity/cmp/clientviewtest</a></p>
+</li>
+<li>
+<p><a href="ejbql-schema.html#GFKQU">E.2.2 ejb/ee/bb/entity/cmp/complexpktest</a></p>
+</li>
+<li>
+<p><a href="ejbql-schema.html#GFKSB">E.2.3 ejb/ee/tx/txECMPbean</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="contextrootmappingrules.html#GJJWH">F Context Root Mapping Rules for Web Services Tests</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="contextrootmappingrules.html#GJJWR">F.1 Servlet-Based Web Service Endpoint Context Root Mapping</a></p>
+</li>
+<li>
+<p><a href="contextrootmappingrules.html#GJJWG">F.2 Jakarta Enterprise Bean-Based Web Service Endpoint Context Root Mapping</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="jms-resource-adaptr.html#CJGFHFIF">G Testing a Standalone Jakarta Messaging Resource Adapter</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="jms-resource-adaptr.html#CJGGIEEJ">G.1 Setting Up Your Environment</a></p>
+</li>
+<li>
+<p><a href="jms-resource-adaptr.html#CJGDJCEC">G.2 Configuring Jakarta EE 8 CTS</a></p>
+</li>
+<li>
+<p><a href="jms-resource-adaptr.html#CJGFCJBA">G.3 Configuring a Jakarta EE 8 CI for the Standalone Jakarta Messaging Resource Adapter</a></p>
+</li>
+<li>
+<p><a href="jms-resource-adaptr.html#CJGEBECH">G.4 Modifying the Runtime Deployment Descriptors for the Jakarta Messaging MDB and Resource Adapter Tests</a></p>
+</li>
+<li>
+<p><a href="jms-resource-adaptr.html#CJGFHCBJ">G.5 Running the Jakarta Messaging Tests From the Command Line</a></p>
+</li>
+<li>
+<p><a href="jms-resource-adaptr.html#CJGCJGIH">G.6 Restoring the Runtime Deployment Descriptors for the Jakarta Messaging MDB and Resource Adapter Tests</a></p>
+</li>
+<li>
+<p><a href="jms-resource-adaptr.html#CJGCDGIG">G.7 Reconfiguring Jakarta EE 8 CI for Jakarta EE 8 CTS After Testing the Standalone Jakarta Messaging Resource Adapter</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+
+		<td align="left">
+		<a href="title.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

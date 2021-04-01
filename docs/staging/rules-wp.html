@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Procedure for Jakarta Platform, Enterprise Edition 8 Web Profile Certification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Procedure for Jakarta Platform, Enterprise Edition 8 Web Profile Certification</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="rules.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="install.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GJJPZ"></a><a id="procedure-for-jakarta-platform-enterprise-edition-8-web-profile-certification"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_procedure_for_jakarta_platform_enterprise_edition_8_web_profile_certification">3 Procedure for Jakarta Platform, Enterprise Edition 8 Web Profile Certification</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter describes the compatibility testing procedure and
+compatibility requirements for Jakarta Platform, Enterprise Edition Version 8
+Web Profile.</p>
+</div>
+<div class="paragraph">
+<p>This chapter contains the following sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#CEGEJDGE">Certification Overview</a></p>
+</li>
+<li>
+<p><a href="#CEGFGHIC">Compatibility Requirements</a></p>
+</li>
+<li>
+<p><a href="#CEGHFFED">Jakarta Platform, Enterprise Edition Version 8 Test
+Appeals Process</a></p>
+</li>
+<li>
+<p><a href="#CEGEHIBD">Specifications for Jakarta Platform, Enterprise Edition
+Version 8, Web Profile</a></p>
+</li>
+<li>
+<p><a href="#CEGFDIEG">Libraries for Jakarta Platform, Enterprise Edition Version
+8, Web Profile</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="CEGEJDGE"></a><a id="certification-overview"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_3_1_certification_overview">3.1 Certification Overview</h3>
+<div class="paragraph">
+<p>The certification process for Jakarta EE 8, Web Profile consists of the following activities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install the appropriate version of the Technology Compatibility Kit
+(TCK) and execute it in accordance with the instructions in this User&#8217;s
+Guide.</p>
+</li>
+<li>
+<p>Ensure that you meet the requirements outlined in ”Compatibility
+Requirements,” below.</p>
+</li>
+<li>
+<p>Certify to the Eclipse Foundation that you have finished
+testing and that you meet all of the compatibility requirements,
+as required by the Eclipse Foundation TCK License.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="CEGFGHIC"></a><a id="compatibility-requirements"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_2_compatibility_requirements">3.2 Compatibility Requirements</h3>
+<div class="paragraph">
+<p>The compatibility requirements for Jakarta EE 8, Web Profile consist of meeting the requirements set forth by the rules and
+associated definitions contained in this section.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref10"></a><a id="definitions"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_3_2_1_definitions">3.2.1 Definitions</h4>
+<div class="paragraph">
+<p>These definitions are for use only with these compatibility requirements
+and are not intended for any other purpose.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref11"></a><a id="sthref12"></a></p>
+</div>
+<div class="paragraph">
+<p>Table 3-1 Definitions </p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API Definition Product</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Product for which the only Java class files
+contained in the product are those corresponding to the application
+programming interfaces defined by the Specifications, and which is
+intended only as a means for formally specifying the application
+programming interfaces defined by the Specifications.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A collection of components contained in a single
+application package (such as an EAR file or JAR file) and deployed at
+the same time using a Deployment Tool.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Computational Resource</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A piece of hardware or software that may vary in quantity, existence, or
+version, which may be required to exist in a minimum quantity and/or at
+a specific or minimum revision level so as to satisfy the requirements
+of the Test Suite.</p>
+</div>
+<div class="paragraph">
+<p>Examples of computational resources that may vary in quantity are RAM
+and file descriptors.</p>
+</div>
+<div class="paragraph">
+<p>Examples of computational resources that may vary in existence (that is,
+may or may not exist) are graphics cards and device drivers.</p>
+</div>
+<div class="paragraph">
+<p>Examples of computational resources that may vary in version are
+operating systems and device drivers.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configuration Descriptor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any file whose format is well defined by a
+specification and which contains configuration information for a set of
+Java classes, archive, or other feature defined in the specification.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conformance Tests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All tests in the Test Suite for an indicated
+Technology Under Test, as released and distributed by the Eclipse Foundation, excluding
+those tests on the Exclude List for the Technology Under Test.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Container</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An implementation of the associated Libraries, as specified
+in the Specifications, and a version of a Java Platform, Standard
+Edition Runtime Product, as specified in the Specifications, or a later
+version of a Java Platform, Standard Edition Runtime Product that also
+meets these compatibility requirements.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deployment Tool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A tool used to deploy applications or components in a
+Product, as described in the Specifications.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Documented</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Made technically accessible and made known to users,
+typically by means such as marketing materials, product documentation,
+usage messages, or developer support programs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Version of the Java Platform. Editions include Java Platform
+Standard Edition and Java Platform Enterprise Edition.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Endorsed Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Java API defined through a standards process other
+than the Jakarta Enterprise Specification Process. The Endorsed Standard packages are
+listed later in this chapter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exclude List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The most current list of tests, released and distributed by the
+Eclipse Foundation, that are not required to be passed to certify
+conformance. The Jakarta EE Specification Committee may add to the Exclude List for that
+Test Suite as needed at any time, in which case the updated TCK version
+supplants any previous Exclude Lists for that Test Suite.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java-to-WSDL Output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Output of a Java-to-WSDL Tool that is required for
+Web service deployment and invocation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java-to-WSDL Tool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A software development tool that implements or
+incorporates a function that generates web service endpoint descriptions
+in WSDL and XML schema format from Source Code as specified by the JAXWS
+Specification.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Server Page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A text-based document that uses Jakarta Server Pages technology.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Server Page Implementation Class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A program constructed by transforming
+the Jakarta Server Page text into a Java language program using the transformation
+rules described in the Specifications.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libraries</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The class libraries, as specified through the Jakarta EE Specification Process
+(JESP), for the Technology Under Test.</p>
+</div>
+<div class="paragraph">
+<p>The Libraries for Jakarta Platform, Enterprise Edition Version 8 are listed
+at the end of this chapter.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location Resource</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A location of classes or native libraries that are components of the
+test tools or tests, such that these classes or libraries may be
+required to exist in a certain location in order to satisfy the
+requirements of the test suite.</p>
+</div>
+<div class="paragraph">
+<p>For example, classes may be required to exist in directories named in a
+CLASSPATH variable, or native libraries may be required to exist in
+directories named in a PATH variable.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maintenance Lead</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The corresponding Jakarta EE Specification Project is
+responsible for maintaining the Specification and the TCK for the
+Technology. The Specification Project Team will propose revisions and
+updates to the Jakarta EE Specification Committee which will approve and
+release new versions of the specification and TCK. Eclipse Jakarta EE
+Specification Committee is the Maintenance Lead for Jakarta Platform,
+Enterprise Edition Version 8, Web Profile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operating Mode</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Any Documented option of a Product that can be changed by a user in
+order to modify the behavior of the Product.</p>
+</div>
+<div class="paragraph">
+<p>For example, an Operating Mode can be binary (enable/disable
+optimization), an enumeration (select from a list of protocols), or a
+range (set the maximum number of active threads).</p>
+</div>
+<div class="paragraph">
+<p>Note that an Operating Mode may be selected by a command line switch, an
+environment variable, a GUI user interface element, a configuration or
+control file, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Product</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A vendor&#8217;s product in which the Technology Under Test is
+implemented or incorporated, and that is subject to compatibility
+testing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Product Configuration</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A specific setting or instantiation of an Operating Mode.</p>
+</div>
+<div class="paragraph">
+<p>For example, a Product supporting an Operating Mode that permits user
+selection of an external encryption package may have a Product
+Configuration that links the Product to that encryption package.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rebuildable Tests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests that must be built using an implementation
+specific mechanism. This mechanism must produce specification-defined
+artifacts. Rebuilding and running these tests against a known
+compatible implementation verifies that the mechanism generates
+compatible artifacts.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compatible Implementation (CI)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A verified compatible implementation
+of a Specification.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Computational Resource, a Location Resource, or a Security
+Resource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rules</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">These definitions and rules in this Compatibility Requirements
+section of this User&#8217;s Guide.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Runtime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Containers specified in the Specifications.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security Resource</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A security privilege or policy necessary for the proper execution of the
+Test Suite.</p>
+</div>
+<div class="paragraph">
+<p>For example, the user executing the Test Suite will need the privilege
+to access the files and network resources necessary for use of the
+Product.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifications</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The documents produced through the Jakarta EE Specification Process (JESP)
+that define a particular Version of a Technology.</p>
+</div>
+<div class="paragraph">
+<p>The Specifications for the Technology Under Test are referenced later in
+this chapter.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Technology</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifications and one or more compatible implementations produced
+through the Jakarta EE Specification Process (JESP).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Technology Under Test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifications and a compatible implementation
+for Jakarta Platform, Enterprise Edition Version 8, Web Profile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test Suite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The requirements, tests, and testing tools distributed by
+the Maintenance Lead as applicable to a given Version of the Technology.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A release of the Technology, as produced through the
+Jakarta EE Specification Process (JESP).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WSDL-to-Java Output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Output of a WSDL-to-Java tool that is required for
+Web service deployment and invocation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WSDL-to-Java Tool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A software development tool that implements or
+incorporates a function that generates web service interfaces for
+clients and endpoints from a WSDL description as specified by the JAXWS
+Specification.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a id="CEGCFBHB"></a><a id="rules-for-jakarta-platform-enterprise-edition-version-8-products"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_2_2_rules_for_jakarta_platform_enterprise_edition_version_8_products">3.2.2 Rules for Jakarta Platform, Enterprise Edition Version 8 Products</h4>
+<div class="paragraph">
+<p>The following rules apply for each version of an operating system,
+software component, and hardware platform Documented as supporting the
+Product:</p>
+</div>
+<div class="paragraph">
+<p>EE-WP1 The Product must be able to satisfy all applicable compatibility
+requirements, including passing all Conformance Tests, in every Product
+Configuration and in every combination of Product Configurations, except
+only as specifically exempted by these Rules.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a Product provides distinct Operating Modes to optimize
+performance, then that Product must satisfy all applicable compatibility
+requirements for a Product in each Product Configuration, and
+combination of Product Configurations, of those Operating Modes.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP1.1 If an Operating Mode controls a Resource necessary for the
+basic execution of the Test Suite, testing may always use a Product
+Configuration of that Operating Mode providing that Resource, even if
+other Product Configurations do not provide that Resource.
+Notwithstanding such exceptions, each Product must have at least one set
+of Product Configurations of such Operating Modes that is able to pass
+all the Conformance Tests.</p>
+</div>
+<div class="paragraph">
+<p>For example, a Product with an Operating Mode that controls a security
+policy (i.e., Security Resource) which has one or more Product
+Configurations that cause Conformance Tests to fail may be tested using
+a Product Configuration that allows all Conformance Tests to pass.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP1.2 A Product Configuration of an Operating Mode that causes the
+Product to report only version, usage, or diagnostic information is
+exempted from these compatibility rules.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP1.3 A Product may contain an Operating Mode that selects the
+Edition with which it is compatible. The Product must meet the
+compatibility requirements for the corresponding Edition for all Product
+Configurations of this Operating Mode. This Operating Mode must affect
+no smaller unit of execution than an entire Application.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP1.4 An API Definition Product is exempt from all functional testing
+requirements defined here, except the signature tests.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP2 Some Conformance Tests may have properties that may be changed.
+Properties that can be changed are identified in the configuration
+interview. Properties that can be changed are identified in the JavaTest
+Environment (.jte) files in the lib directory of the Test Suite
+installation. Apart from changing such properties and other allowed
+modifications described in this User&#8217;s Guide (if any), no source or
+binary code for a Conformance Test may be altered in any way without
+prior written permission. Any such allowed alterations to the
+Conformance Tests will be provided via the Jakarta EE Specification Project
+website and apply to all vendor compatible implementations.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP3 The testing tools supplied as part of the Test Suite or as
+updated by the Maintenance Lead must be used to certify compliance.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP4 The Exclude List associated with the Test Suite cannot be
+modified.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP5 The Maintenance Lead may define exceptions to these Rules. Such
+exceptions would be made available as above, and will apply to all vendor implementations.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP6 All hardware and software component additions, deletions, and
+modifications to a Documented supporting hardware/software platform,
+that are not part of the Product but required for the Product to satisfy
+the compatibility requirements, must be Documented and available to
+users of the Product.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a patch to a particular version of a supporting
+operating system is required for the Product to pass the Conformance
+Tests, that patch must be Documented and available to users of the
+Product.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP7 The Product must contain the full set of public and protected
+classes and interfaces for all the Libraries. Those classes and
+interfaces must contain exactly the set of public and protected methods,
+constructors, and fields defined by the Specifications for those
+Libraries. No subsetting, supersetting, or modifications of the public
+and protected API of the Libraries are allowed except only as
+specifically exempted by these Rules.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP7.1 If a Product includes Technologies in addition to the
+Technology Under Test, then it must contain the full set of combined
+public and protected classes and interfaces. The API of the Product must
+contain the union of the included Technologies. No further modifications
+to the APIs of the included Technologies are allowed.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP7.2 A Product may provide a newer version of an Endorsed Standard.
+Upon request, the Maintenance Lead will make available alternate
+Conformance Tests as necessary to conform with such newer version of an
+Endorsed Standard. Such alternate tests will be made available to and
+apply to all implementers. If a Product provides a newer version of an
+Endorsed Standard, the version of the Endorsed Standard supported by the
+Product must be Documented.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP7.3 The Maintenance Lead may authorize the use of newer Versions of
+a Technology included in the Technology Under Test. A Product that
+provides a newer Version of a Technology must meet the Compatibility
+Requirements for that newer Version, and must Document that it supports
+the newer Version.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP8 Except for tests specifically required by this TCK to be rebuilt
+(if any), the binary Conformance Tests supplied as part of the Test
+Suite or as updated by the Maintenance Lead must be used to certify
+compliance.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP9 The functional programmatic behavior of any binary class or
+interface must be that defined by the Specifications.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP9.1 A Product may contain Operating Modes that meet all of these
+requirements, except Rule EE-WP9, provided that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>At least the default Product Configuration of each Operating Mode
+must meet these requirements, without invoking this rule; testing may
+always use such a Product Configuration.</p>
+</li>
+<li>
+<p>The Operating Modes must not violate the Java Platform, Standard
+Edition Rules.</p>
+</li>
+<li>
+<p>The Product Configurations of Operating Modes of an application and
+its components are configured at deployment time, or by administrative
+action, and can not be changed during the runtime of that application.</p>
+</li>
+<li>
+<p>Some Product Configurations of such Operating Modes may provide only
+a subset of the functional programmatic behavior required by the
+Specifications. The behavior of applications that use more than the
+provided subset, when run in such Product Configurations, is
+unspecified.</p>
+</li>
+<li>
+<p>The functional programmatic behavior of any binary class or
+interface in the above defined subset must be that defined by the
+Specifications.</p>
+</li>
+<li>
+<p>Any Product Configuration that invokes this rule must be clearly
+Documented as not fully meeting the requirements of the Specifications.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>EE-WP10 Each Container must make technically accessible all Java SE
+Runtime interfaces and functionality, as defined by the Specifications,
+to programs running in the Container, except only as specifically
+exempted by these Rules.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP10.1 Containers may impose security constraints, as defined by the
+Specifications.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP11 A web Container must report an error, as defined by the
+Specifications, when processing a Jakarta Server Page that does not conform to the
+Specifications.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP12 The presence of a Java language comment or Java language
+directive in a Jakarta Server Page that specifies ”java” as the scripting language,
+when processed by a web Container, must not cause the functional
+programmatic behavior of that Jakarta Server Page to vary from the functional
+programmatic behavior of that Jakarta Server Page in the absence of that Java
+language comment or Java language directive.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP13 The contents of any fixed template data (defined by the
+Specifications) in a Jakarta Server Page, when processed by a web Container, must
+not affect the functional programmatic behavior of that Jakarta Server Page, except
+as defined by the Specifications.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP14 The functional programmatic behavior of a Jakarta Server Page that
+specifies ”java” as the scripting language must be equivalent to the
+functional programmatic behavior of the Jakarta Server Page Implementation Class
+constructed from that Jakarta Server Page.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP15 A Deployment Tool must report an error when processing a
+Configuration Descriptor that does not conform to the Specifications.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP16 The presence of an XML comment in a Configuration Descriptor,
+when processed by a Deployment Tool, must not cause the functional
+programmatic behavior of the Deployment Tool to vary from the functional
+programmatic behavior of the Deployment Tool in the absence of that
+comment.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP17 A Deployment Tool must report an error when processing an Jakarta Enterprise Beans
+deployment descriptor that includes an Jakarta Enterprise Beans QL expression that does not
+conform to the Specifications.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP18 The Runtime must report an error when processing a Configuration
+Descriptor that does not conform to the Specifications.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP19 The presence of an XML comment in a Configuration Descriptor,
+when processed by the Runtime, must not cause the functional
+programmatic behavior of the Runtime to vary from the functional
+programmatic behavior of the Runtime in the absence of that comment.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP20 Compatibility testing for the Jakarta EE 8 Web Profile consists of
+running the tests for the technologies defined in
+<a href="intro.html#BHCGFHDI">Section 1.2.2, "Jakarta EE 8 Web Profile
+Technologies Tested With Jakarta EE 8 CTS."</a> If optional technologies
+defined in the Jakarta EE 8 Web Profile platform are implemented in
+addition to the required Jakarta EE 8 Web Profile technologies,
+corresponding tests within this TCK for those additional technologies
+must also be run.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP21 Compliance testing for Jakarta EE 8 Web Profile consists of running
+the Jakarta EE 8 Web Profile tests and the following Technology
+Compatibility Kits (TCKs):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Jakarta Contexts and Dependency Injection 2.0</p>
+</li>
+<li>
+<p>Jakarta Dependency Injection 1.0</p>
+</li>
+<li>
+<p>Jakarta Bean Validation 2.0</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition to the compatibility rules outlined in this CTS User&#8217;s
+Guide, Jakarta EE 8 implementations must also adhere to all of the
+compatibility rules defined in the User&#8217;s Guides of the aforementioned
+TCKs.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP22 Source Code in WSDL-to-Java Output when compiled by a Reference
+Compiler must execute properly when run on a Reference Runtime.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP23 Source Code in WSDL-to-Java Output must be in source file format
+defined by the Java Language Specification (JLS).</p>
+</div>
+<div class="paragraph">
+<p>EE-WP24 Java-to-WSDL Output must fully meet W3C requirements for the Web
+Services Description Language (WSDL) 1.1.</p>
+</div>
+<div class="paragraph">
+<p>EE-WP25 A Java-to-WSDL Tool must not produce Java-to-WSDL Output from
+source code that does not conform to the Java Language Specification
+(JLS).</p>
+</div>
+<div class="paragraph">
+<p><a id="CEGHFFED"></a><a id="jakarta-platform-enterprise-edition-version-8-test-appeals-process"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_3_jakarta_platform_enterprise_edition_version_8_test_appeals_process">3.3 Jakarta Platform, Enterprise Edition Version 8 Test Appeals Process</h3>
+<div class="paragraph">
+<p>Jakarta has a well established process for managing challenges to its
+TCKs. Any implementor may submit a challenge to one or more tests in the
+Jakarta EE version 8 TCK (AKA CTS) as it relates to their implementation.  Implementor
+means the entity as a whole in charge of producing the final certified release.
+<strong>Challenges filed should represent the consensus of that entity</strong>.</p>
+</div>
+<div class="sect3">
+<h4 id="_3_3_1_valid_challenges">3.3.1 Valid Challenges</h4>
+<div class="paragraph">
+<p>Any test case (e.g., test class, @Test method), test case configuration (e.g., deployment descriptor), test beans, annotations, and other resources considered part of the TCK may be challenged.</p>
+</div>
+<div class="paragraph">
+<p>The following scenarios are considered in scope for test challenges:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Claims that a test assertion conflicts with the specification.</p>
+</li>
+<li>
+<p>Claims that a test asserts requirements over and above that of the specification.</p>
+</li>
+<li>
+<p>Claims that an assertion of the specification is not sufficiently implementable.</p>
+</li>
+<li>
+<p>Claims that a test is not portable or depends on a particular implementation.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_3_2_invalid_challenges">3.3.2 Invalid Challenges</h4>
+<div class="paragraph">
+<p>The following scenarios are considered out of scope for test challenges and will be immediately closed if filed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Challenging an implementation’s claim of passing a test.  Certification is an honor system and these issues must be raised directly with the implementation.</p>
+</li>
+<li>
+<p>Challenging the usefulness of a specification requirement.  The challenge process cannot be used to bypass the specification process and raise in question the need or relevance of a specification requirement.</p>
+</li>
+<li>
+<p>Claims the TCK is inadequate or missing assertions required by the specification.  See the Improvement section, which is outside the scope of test challenges.</p>
+</li>
+<li>
+<p>Challenges that do not represent a consensus of the implementing community will be closed until such time that the community does agree or agreement cannot be made.  The test challenge process is not the place for implementations to initiate their own internal discussions.</p>
+</li>
+<li>
+<p>Challenges to tests that are already excluded for any reason.</p>
+</li>
+<li>
+<p>Challenges that an excluded test should not have been excluded and should be re-added should be opened as a new enhancement request</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Test challenges must be made in writing via the {TechnologyShortName} specification project issue tracker
+as described in <a href="#CJAJEAEI">Section 2.3.3, "TCK Test Appeals Steps."</a></p>
+</div>
+<div class="paragraph">
+<p>All tests found to be invalid will be placed on the Exclude List
+for that version of the {TechnologyShortName} TCK.</p>
+</div>
+<div class="paragraph">
+<p><a id="CJAJEAEI"></a><a id="tck-test-appeals-steps"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_3_3_tck_test_appeals_steps">3.3.3 TCK Test Appeals Steps</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Challenges should be filed via the Jakarta EE Platform specification project’s issue tracker using the label <code>challenge</code> and include the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The relevant specification version and section number(s)</p>
+</li>
+<li>
+<p>The coordinates of the challenged test(s)</p>
+</li>
+<li>
+<p>The exact TCK and exclude list versions</p>
+</li>
+<li>
+<p>The implementation being tested, including name and company</p>
+</li>
+<li>
+<p>The full test name</p>
+</li>
+<li>
+<p>A full description of why the test is invalid and what the correct behavior is believed to be</p>
+</li>
+<li>
+<p>Any supporting material; debug logs, test output, test logs, run scripts, etc.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Specification project evaluates the challenge.<br>
+Challenges can be resolved by a specification project lead, or a project challenge triage team, after a consensus of the specification project committers is reached or attempts to gain consensus fails.
+Specification projects may exercise lazy consensus, voting or any practice that follows the principles of Eclipse Foundation Development Process.
+The expected timeframe for a response is two weeks or less.
+If consensus cannot be reached by the specification project for a prolonged period of time, the default recommendation is to exclude the tests and address the dispute in a future revision of the specification.</p>
+</li>
+<li>
+<p>Accepted Challenges.<br>
+A consensus that a test produces invalid results will result in the exclusion of that test from certification requirements, and an immediate update and release of an official distribution of the TCK including the new exclude list. The associated <code>challenge</code> issue must be closed with an <code>accepted</code> label to indicate it has been resolved.</p>
+</li>
+<li>
+<p>Rejected Challenges and Remedy.<br>
+When a`challenge` issue is rejected, it must be closed with a label of <code>invalid</code> to indicate it has been rejected.
+There appeal process for challenges rejected on technical terms is outlined in Escalation Appeal.
+If, however, an implementer feels the TCK challenge process was not followed, an appeal issue should be filed with specification project’s TCK issue tracker using the label <code>challenge-appeal</code>.
+A project lead should escalate the issue with the Jakarta EE Specification Committee via email (<a href="mailto:jakarta.ee-spec.committee@eclipse.org">jakarta.ee-spec.committee@eclipse.org</a>).
+The committee will evaluate the matter purely in terms of due process.
+If the appeal is accepted, the original TCK challenge issue will be reopened and a label of <code>appealed-challenge</code> added, along with a discussion of the appeal decision, and the <code>challenge-appeal</code> issue with be closed.
+If the appeal is rejected, the <code>challenge-appeal</code> issue should closed with a label of <code>invalid</code>.</p>
+</li>
+<li>
+<p>Escalation Appeal.<br>
+If there is a concern that a TCK process issue has not been resolved satisfactorily, the
+<a href="https://www.eclipse.org/projects/dev_process/#6_5_Grievance_Handling">Eclipse Development Process Grievance Handling</a> procedure should be followed to escalate the resolution. Note that this is not a mechanism to attempt to handle implementation specific issues.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a id="CEGEHIBD"></a><a id="specifications-for-jakarta-platform-enterprise-edition-version-8-web-profile"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_4_specifications_for_jakarta_platform_enterprise_edition_version_8_web_profile">3.4 Specifications for Jakarta Platform, Enterprise Edition Version 8, Web Profile</h3>
+<div class="paragraph">
+<p>The Specifications for Jakarta Platform, Enterprise Edition 8, Web Profile are found on the Eclipse Foundation, Jakarta EE Specification web
+site at <code>https://jakarta.ee/specifications</code>. You may also find information available from the EE4J Jakarta EE Platform project page, at <code>https://projects.eclipse.org/projects/ee4j.jakartaee-platform</code>.</p>
+</div>
+<div class="paragraph">
+<p><a id="CEGFDIEG"></a>[[3libraries-for-jakarta-platform-enterprise-edition-version-8-web-profile]]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_5_libraries_for_jakarta_platform_enterprise_edition_version_8_web_profile">3.5 Libraries for Jakarta Platform, Enterprise Edition Version 8, Web Profile</h3>
+<div class="paragraph">
+<p>The following location provides a list of packages that constitute the
+required class libraries for the full Java EE 8 platform:</p>
+</div>
+<div class="paragraph">
+<p>``https://projects.eclipse.org/projects/ee4j.jakartaee-platform`</p>
+</div>
+<div class="paragraph">
+<p>The following list constitutes the subset of Jakarta EE 8 packages that are
+required for the Jakarta EE 8 Web Profile:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>javax.annotation</p>
+</li>
+<li>
+<p>javax.annotation.security</p>
+</li>
+<li>
+<p>javax.annotation.sql</p>
+</li>
+<li>
+<p>javax.decorator</p>
+</li>
+<li>
+<p>javax.ejb</p>
+</li>
+<li>
+<p>javax.ejb.embeddable</p>
+</li>
+<li>
+<p>javax.ejb.spi</p>
+</li>
+<li>
+<p>javax.el</p>
+</li>
+<li>
+<p>javax.enterprise.context</p>
+</li>
+<li>
+<p>javax.enterprise.context.spi</p>
+</li>
+<li>
+<p>javax.enterprise.event</p>
+</li>
+<li>
+<p>javax.enterprise.inject</p>
+</li>
+<li>
+<p>javax.enterprise.inject.spi</p>
+</li>
+<li>
+<p>javax.enterprise.util</p>
+</li>
+<li>
+<p>javax.faces</p>
+</li>
+<li>
+<p>javax.faces.application</p>
+</li>
+<li>
+<p>javax.faces.bean</p>
+</li>
+<li>
+<p>javax.faces.component</p>
+</li>
+<li>
+<p>javax.faces.component.behavior</p>
+</li>
+<li>
+<p>javax.faces.component.html</p>
+</li>
+<li>
+<p>javax.faces.component.visit</p>
+</li>
+<li>
+<p>javax.faces.context</p>
+</li>
+<li>
+<p>javax.faces.convert</p>
+</li>
+<li>
+<p>javax.faces.el</p>
+</li>
+<li>
+<p>javax.faces.event</p>
+</li>
+<li>
+<p>javax.faces.flow</p>
+</li>
+<li>
+<p>javax.faces.flow.builder</p>
+</li>
+<li>
+<p>javax.faces.lifecycle</p>
+</li>
+<li>
+<p>javax.faces.model</p>
+</li>
+<li>
+<p>javax.faces.render</p>
+</li>
+<li>
+<p>javax.faces.validator</p>
+</li>
+<li>
+<p>javax.faces.view</p>
+</li>
+<li>
+<p>javax.faces.view.facelets</p>
+</li>
+<li>
+<p>javax.faces.webapp</p>
+</li>
+<li>
+<p>javax.inject</p>
+</li>
+<li>
+<p>javax.interceptor</p>
+</li>
+<li>
+<p>javax.json</p>
+</li>
+<li>
+<p>javax.json.spi</p>
+</li>
+<li>
+<p>javax.json.stream</p>
+</li>
+<li>
+<p>javax.persistence</p>
+</li>
+<li>
+<p>javax.persistence.criteria</p>
+</li>
+<li>
+<p>javax.persistence.metamodel</p>
+</li>
+<li>
+<p>javax.persistence.spi</p>
+</li>
+<li>
+<p>javax.servlet</p>
+</li>
+<li>
+<p>javax.servlet.annotation</p>
+</li>
+<li>
+<p>javax.servlet.descriptor</p>
+</li>
+<li>
+<p>javax.servlet.http</p>
+</li>
+<li>
+<p>javax.servlet.jsp</p>
+</li>
+<li>
+<p>javax.servlet.jsp.el</p>
+</li>
+<li>
+<p>javax.servlet.jsp.jstl.core</p>
+</li>
+<li>
+<p>javax.servlet.jsp.jstl.fmt</p>
+</li>
+<li>
+<p>javax.servlet.jsp.jstl.sql</p>
+</li>
+<li>
+<p>javax.servlet.jsp.jstl.tlv</p>
+</li>
+<li>
+<p>javax.servlet.jsp.tagext</p>
+</li>
+<li>
+<p>javax.transaction</p>
+</li>
+<li>
+<p>javax.transaction.xa</p>
+</li>
+<li>
+<p>javax.validation</p>
+</li>
+<li>
+<p>javax.validation.bootstrap</p>
+</li>
+<li>
+<p>javax.validation.constraints</p>
+</li>
+<li>
+<p>javax.validation.constraintvalidation</p>
+</li>
+<li>
+<p>javax.validation.executable</p>
+</li>
+<li>
+<p>javax.validation.groups</p>
+</li>
+<li>
+<p>javax.validation.metadata</p>
+</li>
+<li>
+<p>javax.validation.spi</p>
+</li>
+<li>
+<p>javax.websocket</p>
+</li>
+<li>
+<p>javax.websocket.server</p>
+</li>
+<li>
+<p>javax.ws.rs</p>
+</li>
+<li>
+<p>javax.ws.rs.client</p>
+</li>
+<li>
+<p>javax.ws.rs.container</p>
+</li>
+<li>
+<p>javax.ws.rs.core</p>
+</li>
+<li>
+<p>javax.ws.rs.ext</p>
+</li>
+<li>
+<p>javax.json.bind</p>
+</li>
+<li>
+<p>javax.json.bind.adapter</p>
+</li>
+<li>
+<p>javax.json.bind.annotation</p>
+</li>
+<li>
+<p>javax.json.bind.config</p>
+</li>
+<li>
+<p>javax.json.bind.serializer</p>
+</li>
+<li>
+<p>javax.json.bind.spi</p>
+</li>
+<li>
+<p>javax.security.enterprise</p>
+</li>
+<li>
+<p>javax.security.enterprise.authentication.mechanism.http</p>
+</li>
+<li>
+<p>javax.security.enterprise.credential</p>
+</li>
+<li>
+<p>javax.security.enterprise.identitystore</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="rules.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="install.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

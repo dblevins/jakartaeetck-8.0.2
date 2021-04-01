@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Configuring Your Backend Database</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>Configuring Your Backend Database</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="jaspic-files.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="ejbql-schema.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GFAVUb"></a><a id="d-configuring-your-backend-database"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_d_configuring_your_backend_database">D Configuring Your Backend Database</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This appendix explains how to configure a backend database to use with a
+Jakarta Platform, Enterprise Edition server being tested against the Jakarta
+EE 8 CTS.</p>
+</div>
+<div class="paragraph">
+<p>The topics included in this appendix are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GFKNA">Overview</a></p>
+</li>
+<li>
+<p><a href="#GFKNR">The init.&lt;database&gt; Ant Target</a></p>
+</li>
+<li>
+<p><a href="#GFKMW">Database Properties in ts.jte</a></p>
+</li>
+<li>
+<p><a href="#GFKOC">Database DDL and DML Files</a></p>
+</li>
+<li>
+<p><a href="#GFKND">CMP Table Creation</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GFKNA"></a><a id="d.1-overview"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_d_1_overview">D.1 Overview</h3>
+<div class="paragraph">
+<p>All Jakarta Platform, Enterprise Edition servers tested against the Jakarta EE
+8 CTS must be configured with a database and JDBC 4.1-compliant drivers.
+Note that the Jakarta Platform, Enterprise Edition CI, Eclipse GlassFish 5.1 includes the Apache Derby
+database.</p>
+</div>
+<div class="paragraph">
+<p>To perform interoperability testing, you need to configure two Jakarta
+Platform, Enterprise Edition servers and two databases, one of which
+must be the Jakarta Platform, Enterprise Edition RI with the bundled Apache Derby
+database. See <a href="config.html#GEWSQ">Jakarta Platform, Enterprise Edition
+Server Configuration Scenarios</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>For the purposes of Jakarta EE 8 CTS testing, all database configuration
+properties required by the CTS are made in the <code>&lt;TS_HOME&gt;/bin/ts.jte</code>
+file. The CTS <code>init.&lt;`database&gt; Ant target uses the properties you set
+in `ts.jte</code> to generate one or more SQL statement files that are in turn
+used create and populate database tables and configure procedures
+required by the CTS.</p>
+</div>
+<div class="paragraph">
+<p>The database configuration process comprises four general steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set database-related properties in the <code>&lt;TS_HOME&gt;/bin/ts.jte</code> file.</p>
+</li>
+<li>
+<p>Configure your Jakarta Platform, Enterprise Edition server
+implementation for your database and for CTS.</p>
+</li>
+<li>
+<p>Start your database.</p>
+</li>
+<li>
+<p>Run the <code>init.</code>&lt;database&gt; Ant target to initialize your database for
+CTS.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The procedure for configuring your Jakarta Platform, Enterprise Edition
+server for your database is described in
+<a href="config.html#GEWTQ">Configuring a Jakarta EE 8 Server</a>. The final step,
+initializing your database for CTS by running `init.&lt;`database&gt; target,
+is explained more in the next section.</p>
+</div>
+<div class="paragraph">
+<p><a id="GFKNR"></a><a id="d.2-the-init.database-ant-target"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_d_2_the_init_database_ant_target">D.2 The init.&lt;database&gt; Ant Target</h3>
+<div class="paragraph">
+<p>Before your Jakarta Platform, Enterprise Edition server database can be
+tested against the Jakarta EE 8 CTS, the database must be initialized for
+CTS by means of the Ant <code>init.&lt;`database&gt; target. For example, the
+`init.javadb</code> Ant task is used to initialize the Apache Derby database for
+CTS.</p>
+</div>
+<div class="paragraph">
+<p>This Ant target references database properties in <code>ts.jte</code> file and
+database-specific DDL and DML files to generate SQL statement files that
+are read by the Jakarta EE 8 CTS when you start the test suite. The DDL and
+DML files are described later in this appendix, in <a href="#GFKOC">Database
+DDL and DML Files</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Jakarta EE 8 CTS includes the following database-specific Ant targets:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>init.cloudscape</code></p>
+</li>
+<li>
+<p><code>init.db2</code></p>
+</li>
+<li>
+<p><code>init.oracle</code></p>
+</li>
+<li>
+<p><code>init.oracleDD</code></p>
+</li>
+<li>
+<p><code>init.oracleInet</code></p>
+</li>
+<li>
+<p><code>init.derby</code></p>
+</li>
+<li>
+<p><code>init.javadb</code></p>
+</li>
+<li>
+<p><code>init.sybase</code></p>
+</li>
+<li>
+<p><code>init.sybaseInet</code></p>
+</li>
+<li>
+<p><code>init.mssqlserver</code></p>
+</li>
+<li>
+<p><code>init.mssqlserverInet</code></p>
+</li>
+<li>
+<p><code>init.mssqlserverDD</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each Ant target uses a database-specific JDBC driver to configure a
+backend for a specific database; for example, OracleInet/Oracle Inet
+driver; OracleDD/Oracle DataDirect driver. These targets are configured
+in the <code>&lt;TS_HOME&gt;/xml/initdb.xml</code> file.</p>
+</div>
+<div class="paragraph">
+<p><a id="GFKMW"></a><a id="d.3-database-properties-in-ts.jte"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_d_3_database_properties_in_ts_jte">D.3 Database Properties in ts.jte</h3>
+<div class="paragraph">
+<p>Listed below are the names and descriptions for the database properties
+you need to set for CTS testing.</p>
+</div>
+<div class="paragraph">
+<p>Note that some properties take the form property`.ri`. In all cases,
+properties with an <code>.ri</code> suffix are used for interoperability testing
+only. In such cases, the property value applies to the Jakarta Platform,
+Enterprise Edition VI server (the server you want to test) and the
+property`.ri` value applies to the Jakarta Platform, Enterprise Edition CI, Eclipse GlassFish 5.1
+server. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">db.dml.file=VI_DML_filename
+db.dml.file.ri=RI_DML_filename</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The property`.ri` properties are only used in two-server configurations;
+that is, when you are performing interoperability tests.</p>
+</div>
+<div class="paragraph">
+<p><a id="sthref60"></a><a id="GFKMJ"></a></p>
+</div>
+<div class="sect4">
+<h5 id="_table_d_1_ts_jte_database_properties">Table D-1 ts.jte Database Properties</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.classes`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CLASSPATH</code> to JDBC driver classes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.dataSource`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DataSource driver.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.dbName`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database Name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.driver`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DriverManager driver.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.password`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User password configured.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.poolName`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of pool configured in the RI (do not
+change!).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.port`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database Server port.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.properties`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional properties required by the defined
+data source for each driver configuration in <code>ts.jte</code>. You should not
+need to modify this property.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.server`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database Server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.url`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL for the CTS database; the <code>dbName</code>, <code>server</code>, and
+<code>port</code> properties are automatically substituted in to build the correct
+URL. You should never need to modify this property.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">database`.user`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User ID configured.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>create.cmp.tables</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When set to <code>false</code>, the application server is
+responsible for creating CMP tables at deployment of the EJB/EAR. When
+set to <code>true</code>, <code>init.</code>&lt;datbase&gt; creates the tables used by CMP EJBs. The
+SQL for the CMP tables are contained in
+<code>&lt;TS_HOME&gt;/`database</code>/sql/<code>database</code>.ddl.cmp.sql` and
+<code>&lt;TS_HOME&gt;/`database</code>/sql/<code>database</code>.ddl.interop.sql`.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>db.dml.file</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tells <code>init.`database which DML file to use for the VI
+database; for example, `db.dml.file=${javadb.dml.file}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>db.dml.file.ri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tells <code>init.`database which DML file to use for the
+RI database; for example, `db.dml.file=${javadb.dml.file}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jdbc.lib.class.path</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by the database`.classes` properties to
+point to the location of the JDBC drivers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jdbc.poolName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configures the connection pool that will be used in
+the CTS test run; for example, <code>jdbc.poolName=${javadb.poolName}</code>. Set
+this property when running against the RI if using a database other than
+Apache Derby.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the JDBC/DB1 resource; for example,
+<code>password1=${javadb.passwd}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the JDBC/DB2 resource; for example,
+<code>password2=${javadb.passwd}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for the JDBC/DBTimer resource; for example,
+<code>password3=${javadb.passwd}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User name for the JDBC/DB1 resource; for example,
+<code>user1=${javadb.user}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User name for the JDBC/DB2 resource; for example,
+<code>user2=${javadb.user}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User name for the JDBC/DBTimer resource; for example,
+<code>user3=${javadb.user}</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a id="GFKOC"></a><a id="d.4-database-ddl-and-dml-files"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_d_4_database_ddl_and_dml_files">D.4 Database DDL and DML Files</h3>
+<div class="paragraph">
+<p>For each supported database type, the Jakarta EE 8 CTS includes a set of
+DDL and DML files in subdirectories off the <code>&lt;TS_HOME&gt;/sql</code> directory.
+The <code>config.vi</code> and <code>config.ri</code> targets use two <code>ts.jte</code> properties,
+<code>db.dml.file</code> and <code>db.dml.file.ri</code> (interop only), to determine the
+database type, and hence which database-specific DML files to copy as
+<code>&lt;TS_HOME&gt;/bin/tssql.stmt</code> and <code>tssql.stmt.ri</code> (for interop) files.</p>
+</div>
+<div class="paragraph">
+<p>The <code>tssql.stmt</code> and <code>tssql.stmt.ri</code> files contain directives for
+configuring and populating database tables as required by the CTS tests,
+and for defining any required primary or foreign key constraints and
+database-specific conmand line terminators.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the database-specific DML files, the Jakarta EE 8 CTS
+includes database-specific DDL files, also in subdirectories off
+<code>&lt;TS_HOME&gt;/sql</code>. These DDL files are used by the `init.`database target
+to create and drop database tables and procedures required by the CTS.</p>
+</div>
+<div class="paragraph">
+<p>The SQL statements in the <code>tssql.stmt</code> and <code>tssql.stmt.ri</code> files are
+read as requested by individual CTS tests, which use the statements to
+locate required DML files.</p>
+</div>
+<div class="paragraph">
+<p>The DDL and DML files are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>database`.ddl.sql`: DDL for BMP, Session Beans</p>
+</li>
+<li>
+<p>database`.ddl.sprocs.sql`: DDL for creating stored procedures</p>
+</li>
+<li>
+<p>database`.ddl.cmp.sql`: DDL for CMP Entity Beans</p>
+</li>
+<li>
+<p>database`.ddl.interop.sql`: DDL for interop tests</p>
+</li>
+<li>
+<p>database`.dml.sql`: DML used during test runs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each DDL command in each <code>&lt;TS_HOME&gt;/sql/`database is terminated with an
+ending delimiter. The delimiter for each database is defined in the
+`&lt;TS_HOME&gt;/bin/xml/initdb.xml</code> file. If your configuration requires the
+use of a database other than the databases that <code>initdb.xml</code> currently
+supports, you may modify <code>initdb.xml</code> to include a target to configure
+the database that you are using.</p>
+</div>
+<div class="paragraph">
+<p>An example of the syntax for a database target in <code>initdb.xml</code> is shown
+below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">&lt;target name="init.sybase"&gt;
+  &lt;antcall target="configure.backend"&gt;
+      &lt;param name="db.driver" value="${sybase.driver}"/&gt;
+      &lt;param name="db.url" value="${sybase.url}"/&gt;
+      &lt;param name="db.user" value="${sybase.user}"/&gt;
+      &lt;param name="db.password" value="${sybase.passwd}"/&gt;
+      &lt;param name="db.classpath" value="${sybase.classes}"/&gt;
+      &lt;param name="db.delimiter" value="!"/&gt;
+      &lt;param name="db.name" value="sybase" /&gt;
+  &lt;/antcall&gt;
+&lt;/target&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The database`.name` property should be added to your <code>ts.jte</code> file. The
+<code>db.name</code> property is the name of a subdirectory in <code>&lt;TS_HOME&gt;/sql</code>.
+After updating <code>initdb.xml</code>, you invoke the new target with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">ant -f &lt;TS_HOME&gt;/bin/xml/initdb.xml init.databasename</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="GFKND"></a><a id="d.5-cmp-table-creation"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_d_5_cmp_table_creation">D.5 CMP Table Creation</h3>
+<div class="paragraph">
+<p>If the application server under test does not provide an option to
+automatically create tables used by CMP Entity EJBs, the needed SQL is
+provided in <code>&lt;TS_HOME&gt;/sql/`database</code>/<code>database</code>.cmp.sql`.</p>
+</div>
+<div class="paragraph">
+<p>Setting the <code>ts.jte</code> property <code>create.cmp.tables=true</code> instructs the
+<code>init.`databasename target to create the tables defined in the
+`&lt;TS_HOME&gt;/sql/`database</code>/<code>database</code>.cmp.sql` file.</p>
+</div>
+<div class="paragraph">
+<p>If you set <code>create.cmp.tables=false</code> in the <code>ts.jte</code> file, it is
+expected that you will create the necessary CMP tables at deployment
+time.</p>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="jaspic-files.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="ejbql-schema.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>EJBQL Schema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/96c4d89611.js"></script>
+  </head>
+  <body>
+<table id="doc-title" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="left" valign="top">
+  <b>EJBQL Schema</b><br />
+  </td>
+  </tr>
+</table>
+<hr />
+
+<table width="90%" id="top-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>
+		<td align="left">
+		<a href="database-config.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="contextrootmappingrules.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class=" vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="GFAVUc"></a><a id="e-ejbql-schema"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_e_ejbql_schema">E EJBQL Schema</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta Enterprise Beans, EJB-QL tests perform queries against a CMP 2.0 abstract persistence
+model that you deploy before you start the test runs.</p>
+</div>
+<div class="paragraph">
+<p>Section 9.3.5, "EJB QL and SQL," in the EJB 3.1 Specification
+(<code>http://jcp.org/en/jsr/detail?id=318</code>) contains a sample mapping that
+shows how the Jakarta Platform, Enterprise Edition CI translates EJB QL to
+SQL, which helps to clarify the EJB QL semantics.</p>
+</div>
+<div class="paragraph">
+<p>This appendix includes information about the following topics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GFKSI">Persistence Schema Relationships</a></p>
+</li>
+<li>
+<p><a href="#GFKQT">SQL Statements for CMP 1.1 Finders</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GFKSI"></a><a id="e.1-persistence-schema-relationships"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_e_1_persistence_schema_relationships">E.1 Persistence Schema Relationships</h3>
+<div class="paragraph">
+<p>The figure, <a href="#GFKUU">Figure E-1</a>, below, contains detailed
+information about the persistence schema relationships.</p>
+</div>
+<div class="sect4">
+<h5 id="GFKUU">Figure E-1 Persistence Schema Relationships</h5>
+<div class="paragraph">
+<p><span class="image"><img src="img/ejbschema.png" alt="Persistence Schema Relationships"></span></p>
+</div>
+<div class="paragraph">
+<p>Note: EJB in the figure above is a  references to Jakarta Enterprise Beans.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 34%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>AliasEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+String alias;(cmp)
+Customer customerNoop;(cmr)
+Collection customersNoop;(cmr)
+Collection customers;(cmr)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Country: DVC</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String name;(cmp)
+String code;(cmp)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>AddressEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+String street;(cmp)
+String city;(cmp)
+String state;(cmp)
+String zip;(cmp)
+Collection phones;(cmr)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ProductEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+String name;(cmp)
+float price;(cmp)
+int quantity;(cmp)
+long partNumber;(cmp)</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>CustomerEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+String name;(cmp)
+Country country;(cmp)
+AddressLocal home;(cmr)
+AddressLocal work;(cmr)
+Collection creditCards;(cmr)
+Collection orders;(cmr)
+Collection aliases;(cmr)
+SpouseLocal spouse;(cmr)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>CreditCardEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+String type;(cmp)
+String expires;(cmp)
+boolean approved;(cmp)
+String number;(cmp)
+OrderLocal order;(cmr)
+CustomerLocal customer;(cmr)
+double balance;(cmp)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>InfoEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+String street;(cmp)
+String city;(cmp)
+String state;(cmp)
+String zip;(cmp)
+SpouseLocal spouse;(cmr)</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>OrderEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+float totalPrice;(cmp)
+CustomerLocal customer;(cmr)
+LineItemLocalsampleLineItem;(cmr)
+Collection lineItems;(cmr)
+CreditCardLocal creditCard;(cmr)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>LineItemEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+int quantity;(cmp)
+OrderLocal order;(cmr)
+ProductLocal product;(cmr)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>PhoneEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+String area:(cmp)
+String number;(cmp)
+AddressLocal  address;(cmr)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>SpouseEJB</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">String id;(pk)(cmp)
+String firstName;(cmp)
+String maidenName;(cmp)
+String lastName;(cmp)
+String SocialSecurityNumber(cmp);
+InfoLocal info;(cmr)
+CustomerLocal customer;(cmr)</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a id="GFKQT"></a><a id="e.2-sql-statements-for-cmp-1.1-finders"></a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_e_2_sql_statements_for_cmp_1_1_finders">E.2 SQL Statements for CMP 1.1 Finders</h3>
+<div class="paragraph">
+<p>Listed below are the SQL statements used for CMP 1.1 finders in:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ejb/ee/bb/entity/cmp/clientviewtest</code></p>
+</li>
+<li>
+<p><code>interop/ejb/entity/cmp/clientviewtest</code></p>
+</li>
+<li>
+<p><code>ejb/ee/bb/entity/cmp/complexpktest</code></p>
+</li>
+<li>
+<p><code>ejb/ee/tx/txECMPbean</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="GFKSD"></a><a id="e.2.1-ejbeebbentitycmpclientviewtest-interopejbentitycmpclientviewtest"></a></p>
+</div>
+<div class="sect3">
+<h4 id="_e_2_1_ejb_ee_bb_entity_cmp_clientviewtest_interop_ejb_entity_cmp_clientviewtest">E.2.1 ejb/ee/bb/entity/cmp/clientviewtest, interop/ejb/entity/cmp/clientviewtest</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">&lt;method-name&gt;findWithinPrimaryKeyRange&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TestBeanEJBTable" WHERE "KEY_ID" BETWEEN ?1 AND ?2&lt;/sql&gt;
+&lt;method-name&gt;findWithinPriceRange&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TestBeanEJBTable" WHERE "PRICE" BETWEEN ?1 AND ?2&lt;/sql&gt;
+&lt;method-name&gt;findByName&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TestBeanEJBTable" WHERE "BRAND_NAME" = ?1&lt;/sql&gt;
+&lt;method-name&gt;findAllBeans&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TestBeanEJBTable"&lt;/sql&gt;
+&lt;method-name&gt;findByPrice&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TestBeanEJBTable" WHERE "PRICE" = ?1&lt;/sql&gt;
+&lt;method-name&gt;findByNameSingle&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TestBeanEJBTable" WHERE "BRAND_NAME" = ?1&lt;/sql&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="GFKQU"></a><a id="e.2.2-ejbeebbentitycmpcomplexpktest"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_e_2_2_ejb_ee_bb_entity_cmp_complexpktest">E.2.2 ejb/ee/bb/entity/cmp/complexpktest</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">&lt;method-name&gt;findByPrice&lt;/method-name&gt;
+&lt;sql&gt;SELECT "BRAND_NAME", "ID" FROM "TestBeanEJBTable" WHERE "PRICE" = ?1&lt;/sql&gt;
+&lt;method-name&gt;findById&lt;/method-name&gt;
+&lt;sql&gt;SELECT "BRAND_NAME", "ID" FROM "TestBeanEJBTable" WHERE "ID" = ?1&lt;/sql&gt;
+&lt;method-name&gt;findByName&lt;/method-name&gt;
+&lt;sql&gt;SELECT  "BRAND_NAME", "ID" FROM "TestBeanEJBTable" WHERE "BRAND_NAME" = ?1&lt;/sql&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a id="GFKSB"></a><a id="e.2.3-ejbeetxtxecmpbean"></a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_e_2_3_ejb_ee_tx_txecmpbean">E.2.3 ejb/ee/tx/txECMPbean</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-oac_no_warn" data-lang="oac_no_warn">&lt;method-name&gt;findByName&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TxECMPBeanEJBTable" WHERE "BRAND_NAME" = ?1&lt;/sql&gt;
+&lt;method-name&gt;findWithinPrimaryKeyRange&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TxECMPBeanEJBTable" WHERE "PRICE" BETWEEN ?1 AND ?2&lt;/sql&gt;
+&lt;method-name&gt;findByPrice&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TxECMPBeanEJBTable" WHERE "PRICE" = ?1&lt;/sql&gt;
+&lt;method-name&gt;findWithinPrimaryKeyRange&lt;/method-name&gt;
+&lt;sql&gt;SELECT "KEY_ID" FROM "TxECMPBeanEJBTable" WHERE "KEY_ID" BETWEEN ?1 AND ?2&lt;/sql&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr />
+
+<table width="90%" id="bottom-nav" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col width="12%"/>
+		<col width="12%"/>
+		<col width="*"/>
+	</colgroup>
+	<tr>		
+		<td align="left">
+		<a href="database-config.html">
+			<span class=" vector-font"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Previous</span>
+		</a>
+		</td>
+
+		<td align="left">
+		<a href="contextrootmappingrules.html">
+			<span class="vector-font"><i class="fa fa-arrow-circle-right vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Next</span>
+		</a>
+		</td>
+
+		<td align="right">
+		<a href="toc.html">
+			<span class="vector-font"><i class="fa fa-list vector-font" aria-hidden="true"></i></span>
+			<span style="position:relative;top:-2px;">Contents</span>
+		</a>
+		</td>
+	</tr>
+</table>
+
+<span id="copyright">
+		<img src="img/eclipse_foundation_logo_tiny.png" height="20px" alt="Eclipse Foundation Logo" align="top"/>&nbsp;			
+		<span >Copyright&nbsp;&copy;&nbsp;2018,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span>
+</span>
+
+</body>
+</html>
